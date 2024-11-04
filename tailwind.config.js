@@ -1,4 +1,5 @@
 import {nextui} from '@nextui-org/theme'
+import daisyui from 'daisyui'
 
 /** @type {import('tailwindcss').Config} */
 const styleExports = {
@@ -22,7 +23,7 @@ const styleExports = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [nextui(),daisyui],
 }
 
 export default styleExports;
