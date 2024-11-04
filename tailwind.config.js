@@ -1,7 +1,7 @@
 import {nextui} from '@nextui-org/theme'
 
 /** @type {import('tailwindcss').Config} */
-const exports = {
+const styleExports = {
   content: [
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -19,4 +19,4 @@ const exports = {
   plugins: [nextui()],
 }
 
-export default exports;
+export default styleExports;
