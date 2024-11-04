@@ -26,58 +26,39 @@ import {
 import Image from "next/image";
 
 export const Navbar = () => {
-  const searchInput = (
-    <Input
-      aria-label="Search"
-      classNames={{
-        inputWrapper: "bg-default-100",
-        input: "text-sm",
-      }}
-      endContent={
-        <Kbd className="hidden lg:inline-block" keys={["command"]}>
-          K
-        </Kbd>
-      }
-      labelPlacement="outside"
-      placeholder="Search..."
-      startContent={
-        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-      }
-      type="search"
-    />
-  );
+ 
 
   return (
-    <NextUINavbar className="bg-gradient-to-b from-[#EEE0FF] to-[#fcf9ff]" maxWidth="xl" position="sticky" >
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+    <NextUINavbar className="bg-gradient-to-b from-[#EEE0FF] to-[#fcf9ff] py-4 px-16 "  maxWidth="xl" position="sticky" >
+      <NavbarContent className="justify-center" data-justify="center">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Image width={90} height={30} alt={'logo'} src="/primary-logo.svg"/>
           </NextLink>
         </NavbarBrand>
       <div>
-        <h1 className="font-font2 font-bold text-lg">Delivery in 
+        <h1 className="font-font2 font-bold text-xl">Delivery in 
         <span className="font-font5 text-lg"> 7 Mins</span></h1>
-        <button>New Circular Road, Sagardi, Barisal, Baris</button>
+        <button className="text-sm font-semibold font-font3">Pocket 25, Subhash Place, Rohini, Delhi, Delhi</button>
       </div>
       </NavbarContent>
 
       <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
-        justify="end"
+        className="hidden sm:flex w-full gap-5"
       >
-        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-        <NavbarItem className="hidden md:flex">
-          <Button
-            isExternal
-            as={Link}
-            className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.sponsor}
-            startContent={<HeartFilledIcon className="text-danger" />}
-            variant="flat"
-          >
-            Sponsor
-          </Button>
+        <NavbarItem className="hidden lg:flex w-full bg-[#FFFFFF] rounded-lg py-3 px-4 gap-5">
+          <Image height={50} width={50} alt="search icon" src="/search-icon.svg" className="h-[20px] w-[20px]"/>         
+          <p className="font-font1">Search for </p>
+        </NavbarItem>
+        <NavbarItem className="hidden md:flex gap-5">
+          <button className="flex flex-col items-center">
+            <Image height={24} width={24} alt="user" src="/icons/user.svg"/>
+            <p className="text-xs">Login</p>
+          </button>
+          <button className="flex flex-col items-center">
+            <Image height={24} width={24} alt="user" src="/icons/cart.svg"/>
+            <p className="text-xs">Cart</p>
+          </button>
         </NavbarItem>
       </NavbarContent>
 
@@ -90,7 +71,6 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarMenu>
-        {searchInput}
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
