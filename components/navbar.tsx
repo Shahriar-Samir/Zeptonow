@@ -56,8 +56,8 @@ export const Navbar = () => {
           </NextLink>
         </NavbarBrand>
       <div>
-        <h1 className="font-font3 font-bold text-lg">Delivery in 
-        <span className="font-font1"> 7 Mins</span></h1>
+        <h1 className="font-font2 font-bold text-lg">Delivery in 
+        <span className="font-font5 text-lg"> 7 Mins</span></h1>
         <button>New Circular Road, Sagardi, Barisal, Baris</button>
       </div>
       </NavbarContent>
