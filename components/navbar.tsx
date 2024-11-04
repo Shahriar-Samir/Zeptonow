@@ -23,6 +23,7 @@ import {
   SearchIcon,
   Logo,
 } from "@/components/icons";
+import Image from "next/image";
 
 export const Navbar = () => {
   const searchInput = (
@@ -47,30 +48,18 @@ export const Navbar = () => {
   );
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar className="bg-gradient-to-b from-[#EEE0FF] to-[#fcf9ff]" maxWidth="xl" position="sticky" >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Logo />
-            <p className="font-bold text-inherit">ACME</p>
+            <Image width={90} height={30} alt={'logo'} src="/primary-logo.svg"/>
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
-        </ul>
+      <div>
+        <h1 className="font-font3 font-bold text-lg">Delivery in 
+        <span className="font-font1"> 7 Mins</span></h1>
+        <button>New Circular Road, Sagardi, Barisal, Baris</button>
+      </div>
       </NavbarContent>
 
       <NavbarContent
