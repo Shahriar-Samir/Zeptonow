@@ -16,7 +16,7 @@ const Sidebar = () => {
 
     const path = usePathname()
 
-    console.log(path)
+    console.log(path.split('/')[2])
 
     const subcategoires:subCategoryType[] = [
         {
