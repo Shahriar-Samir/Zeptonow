@@ -6,7 +6,7 @@ export const Navbar = () => {
 
   return (
 
-      <nav className="flex flex-col md:flex-row justify-between md:items-center bg-[#D1ABFF] md:bg-gradient-to-b md:from-[#EEE0FF] md:to-[#fcf9ff] px-2 py-4 md:px-16 gap-5">
+      <nav className="flex flex-col md:flex-row justify-between md:items-center bg-[#D1ABFF] md:bg-gradient-to-b md:from-[#EEE0FF] md:to-[#fcf9ff] px-2 py-4 md:px-16 gap-5 sticky top-0 z-20">
       <div className="flex gap-5 items-center">
         <div className="gap-3">
           <NextLink className="flex justify-start items-center gap-1" href="/">
