@@ -12,8 +12,6 @@ export const Navbar = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(position.coords.latitude)
-          console.log(position.coords.longitude)
           axios.get(`https://api.opencagedata.com/geocode/v1/json?key=c87ff59feccf4d21a22f30952ae0d625&q=${position.coords.latitude}+${position.coords.longitude}`)
           .then(res=>{
             const currentLocation = res.data.results[0].components
@@ -32,7 +30,7 @@ export const Navbar = () => {
 
   return (
 
-      <nav className="flex flex-col md:flex-row justify-between md:items-center bg-[#D1ABFF] md:bg-gradient-to-b md:from-[#EEE0FF] md:to-[#FEFDFF] px-2 py-4 pb-8 md:px-16 gap-5 sticky top-0 z-20">
+      <nav className="flex flex-col md:flex-row justify-between md:items-center bg-[#D1ABFF] md:bg-gradient-to-b md:from-[#EEE0FF] md:to-[#FEFDFF] px-2 py-4 pb-8 md:px-16 gap-5 sticky top-0 z-50">
       <div className="flex gap-5 items-center">
         <div className="gap-3">
           <NextLink className="flex justify-start items-center gap-1" href="/">

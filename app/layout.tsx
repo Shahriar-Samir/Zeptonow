@@ -4,18 +4,14 @@ import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
-
-import { siteConfig } from "@/config/site";
 import { fontMono, fontPoppins, fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    default:'',
   },
-  description: siteConfig.description,
   icons: {
     icon: "/favicon.ico",
   },

@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-
-
 const SnacksAndDrinks = () => {
     const SnacksAndDrinksSubCategories: categoryType[] = [
         {
@@ -13,31 +11,32 @@ const SnacksAndDrinks = () => {
         },
         {
           img: "/category/2.webp",
-          link: "/cn/tea-coffee-more/icecreams-more",
+          link: "/cn/icecreams-more/top-picks",
         },
         {
           img: "/category/3.webp",
-          link: "/cn/tea-coffee-more/frozen-food",
+          link: "/cn/frozen-food/top-picks",
         },
         {
           img: "/category/4.webp",
-          link: "/cn/tea-coffee-more/sweet-cravings",
+          link: "/cn/sweet-cravings/top-picks",
         },
         {
           img: "/category/5.webp",
-          link: "/cn/tea-coffee-more/cold-drinks-juices",
+          link: "/cn/cold-drinks-juices/top-picks",
         },
         {
           img: "/category/6.webp",
-          link: "/cn/tea-coffee-more/munchies",
+          link: "/cn/munchies/top-picks",
         },
         {
           img: "/category/7.webp",
-          link: "/cn/tea-coffee-more/biscuits-cookies",
+          link: "/cn/biscuits-cookies/top-picks",
         },
       ];
           
-    return (
+    return (    
+        <main>
         <section>
         <h1 className="text-xl font-font4">Snacks & Drinks</h1>
         <section className="grid grid-cols-8 gap-5 mt-6">
@@ -56,6 +55,7 @@ const SnacksAndDrinks = () => {
           })}
         </section>
         </section>
+        </main>
     );
 };
 
