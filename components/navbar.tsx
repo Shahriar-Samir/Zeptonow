@@ -1,8 +1,34 @@
+'use client'
+
 import NextLink from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import axios from 'axios'
 
 export const Navbar = () => {
- 
+    const [location,setLocation] = useState('')
+
+  useEffect(()=>{
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log(position.coords.latitude)
+          console.log(position.coords.longitude)
+          axios.get(`https://api.opencagedata.com/geocode/v1/json?key=c87ff59feccf4d21a22f30952ae0d625&q=${position.coords.latitude}+${position.coords.longitude}`)
+          .then(res=>{
+            const currentLocation = res.data.results[0].components
+            setLocation(`${currentLocation.county}, ${currentLocation.state}`)
+          })
+        },
+        (error) => {
+          console.log(error)
+        }
+      );
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  },[])
+
 
   return (
 
@@ -16,7 +42,25 @@ export const Navbar = () => {
       <div>
         <h1 className="font-font2 font-bold text-lg w-max">Delivery in 
         <span className="font-font5 "> 7 Mins</span></h1>
-        <button className="text-sm font-semibold font-font3 w-max">Pocket 25, Subhash Placesdf dsasdf sd</button>
+        <button onClick={()=>document.getElementById('my_modal_1').showModal()} className="text-sm font-semibold font-font3 w-max">{location.slice(0,44)} {location.length > 44? '...' : ''}</button>
+<dialog id="my_modal_1" className="modal">
+  <div className="modal-box bg-white">
+    <div className="flex items-center justify-center py-2 bordre">
+    <form method="dialog">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 className="font-font4 text-center">Your Location</h3>
+    </div>
+
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+      
+      </form>
+    </div>
+  </div>
+</dialog>
       </div>
       </div>
 
