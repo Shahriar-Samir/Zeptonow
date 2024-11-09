@@ -281,34 +281,29 @@ export const atta:subCategoryType[] = [
       title:'Top Picks'
   },
   {
-      path: '/cn/atta-rice-oils-dals/chocolates',
+      path: '/cn/atta-rice-oils-dals/oil',
       img: '/category/GroceryAndKitchen/Atta/2.webp',
-      title:'Chocolates'
+      title:'Oil'
   },
   {
-      path: '/cn/atta-rice-oils-dals/indian-mithai',
+      path: '/cn/atta-rice-oils-dals/atta-other-flours',
       img: '/category/GroceryAndKitchen/Atta/3.webp',
-      title:'Indian Mithai'
+      title:'Atta & Other Flours'
   },
   {
-      path: '/cn/atta-rice-oils-dals/pastries-cakes',
+      path: '/cn/atta-rice-oils-dals/dals-pulses',
       img: '/category/GroceryAndKitchen/Atta/4.webp',
-      title:'Pastries & Cakes'
+      title:'Dals & Pulses'
   },
   {
-      path: '/cn/atta-rice-oils-dals/dessert-mixes',
+      path: '/cn/atta-rice-oils-dals/rice-more',
       img: '/category/GroceryAndKitchen/Atta/5.webp',
-      title:'Dessert Mixes'
+      title:'Rice & More'
   },
   {
-      path: '/cn/atta-rice-oils-dals/candies-gums-mints',
+      path: '/cn/atta-rice-oils-dals/ghee',
       img: '/category/GroceryAndKitchen/Atta/6.webp',
-      title:'Candies, Gums & Mints'
-  },
-  {
-      path: '/cn/atta-rice-oils-dals/premium-chocolates',
-      img: '/category/GroceryAndKitchen/Atta/7.webp',
-      title:'Premium Chocolates'
+      title:'Ghee'
   },
 ]
 
