@@ -57,7 +57,7 @@ const Subcategory = (props: { params: { subcategory: string, category:string } }
                 </div>
                 <div className="p-0 text-sm">
                   <h2 className="mt-2 font-font2">
-                    {item.name}
+                    {item.name.replace('%25','%').replace('%2F','/').replace('%7C','|').replace('%7C','|').replace("%E2%80%99", "'")}
                   </h2>
                   <p className="font-font1 mt-1">{item.unit}</p>
                 </div>

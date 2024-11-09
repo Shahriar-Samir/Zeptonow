@@ -52,7 +52,7 @@ const Sidebar = (props:{ category: string } ) => {
         if(category==='masala-dry-fruits'){
             setSubcategories(masala)
         }
-        if(category==='breakfast-sauces'){
+        if(category==='breakfast'){
             setSubcategories(breakfast)
         }
     },[])

@@ -11,7 +11,7 @@ const GroceryAndKitchen = () => {
         },
         {
           img: "/category/GroceryAndKitchen/breakfatAndSauces.webp",
-          link: "/cn/breakfast-sauces/top-picks",
+          link: "/cn/breakfast/top-picks",
         },
         {
           img: "/category/GroceryAndKitchen/masalaDryFruits.webp",

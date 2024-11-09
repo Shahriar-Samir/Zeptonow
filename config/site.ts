@@ -315,141 +315,127 @@ export const packaged:subCategoryType[] = [
       title:'Top Picks'
   },
   {
-      path: '/cn/packagedFood/chocolates',
+      path: '/cn/packagedFood/noodles-vermicelli',
       img: '/category/GroceryAndKitchen/packaged/2.webp',
-      title:'Chocolates'
+      title:'Noodles & Vermicelli'
   },
   {
-      path: '/cn/packagedFood/indian-mithai',
+      path: '/cn/packagedFood/pasta-soups',
       img: '/category/GroceryAndKitchen/packaged/3.webp',
-      title:'Indian Mithai'
+      title:'Pasta & Soups'
   },
   {
-      path: '/cn/packagedFood/pastries-cakes',
+      path: '/cn/packagedFood/papads-pickles-chutney',
       img: '/category/GroceryAndKitchen/packaged/4.webp',
-      title:'Pastries & Cakes'
+      title:'Papads, Pickles & Chutney'
+  },
+  {
+      path: '/cn/packagedFood/ready-to-cook',
+      img: '/category/GroceryAndKitchen/packaged/5.webp',
+      title:'Ready To Cook'
+  },
+  {
+      path: '/cn/packagedFood/ready-to-eat',
+      img: '/category/GroceryAndKitchen/packaged/6.webp',
+      title:'Ready To Eat'
+  },
+  {
+      path: '/cn/packagedFood/baby-food',
+      img: '/category/GroceryAndKitchen/packaged/7.webp',
+      title:'Baby Food'
+  },
+  {
+      path: '/cn/packagedFood/bakings-mixes',
+      img: '/category/GroceryAndKitchen/packaged/8.webp',
+      title:'Baking Mixes & Ingredients'
   },
   {
       path: '/cn/packagedFood/dessert-mixes',
-      img: '/category/GroceryAndKitchen/packaged/5.webp',
-      title:'Dessert Mixes'
-  },
-  {
-      path: '/cn/packagedFood/candies-gums-mints',
-      img: '/category/GroceryAndKitchen/packaged/6.webp',
-      title:'Candies, Gums & Mints'
-  },
-  {
-      path: '/cn/packagedFood/premium-chocolates',
-      img: '/category/GroceryAndKitchen/packaged/7.webp',
-      title:'Premium Chocolates'
-  },
-  {
-      path: '/cn/packagedFood/premium-chocolates',
-      img: '/category/GroceryAndKitchen/packaged/8.webp',
-      title:'Premium Chocolates'
-  },
-  {
-      path: '/cn/packagedFood/premium-chocolates',
       img: '/category/GroceryAndKitchen/packaged/9.webp',
-      title:'Premium Chocolates'
+      title:'Dessert Mixes'
   },
 ]
 
 
 export const masala:subCategoryType[] = [
   {
-      path: '/cn/masala-dry-fruitsdFood/top-picks',
+      path: '/cn/masala-dry-fruits/top-picks',
       img: '/category/GroceryAndKitchen/masala/1.webp',
       title:'Top Picks'
   },
   {
-      path: '/cn/masala-dry-fruitsFood/chocolates',
+      path: '/cn/masala-dry-fruits/powders-pastes',
       img: '/category/GroceryAndKitchen/masala/2.webp',
-      title:'Chocolates'
+      title:'Powders & Pastes'
   },
   {
-      path: '/cn/masala-dry-fruitsd/indian-mithai',
+      path: '/cn/masala-dry-fruits/dry-fruits-nuts',
       img: '/category/GroceryAndKitchen/masala/3.webp',
-      title:'Indian Mithai'
+      title:'Dry Fruits & Nuts'
   },
   {
-      path: '/cn/masala-dry-fruits/pastries-cakes',
+      path: '/cn/masala-dry-fruits/whole-spices-seasonings',
       img: '/category/GroceryAndKitchen/masala/4.webp',
-      title:'Pastries & Cakes'
+      title:'Whole Spices & Seasonings'
   },
   {
-      path: '/cn/masala-dry-fruitsd/dessert-mixes',
+      path: '/cn/masala-dry-fruits/salt-sugar-jaggery',
       img: '/category/GroceryAndKitchen/masala/5.webp',
-      title:'Dessert Mixes'
+      title:'Salt, Sugar & Jaggery'
   },
   {
-      path: '/cn/masala-dry-fruits/candies-gums-mints',
+      path: '/cn/masala-dry-fruits/dehydrated-dried',
       img: '/category/GroceryAndKitchen/masala/6.webp',
-      title:'Candies, Gums & Mints'
+      title:'Dehydrated & dried'
   },
   {
-      path: '/cn/masala-dry-fruits/premium-chocolates',
+      path: '/cn/masala-dry-fruits/dates-seeds',
       img: '/category/GroceryAndKitchen/masala/7.webp',
-      title:'Premium Chocolates'
-  },
-  {
-      path: '/cn/masala-dry-fruits/premium-chocolates',
-      img: '/category/GroceryAndKitchen/masala/8.webp',
-      title:'Premium Chocolates'
-  },
-  {
-      path: '/cn/masala-dry-fruits/premium-chocolates',
-      img: '/category/GroceryAndKitchen/masala/9.webp',
-      title:'Premium Chocolates'
+      title:'Dates & Seeds'
   },
 ]
 
 
 export const breakfast:subCategoryType[] = [
   {
-      path: '/cn/breakfast-saucesdFood/top-picks',
+      path: '/cn/breakfast/top-picks',
       img: '/category/GroceryAndKitchen/breakfast/1.webp',
       title:'Top Picks'
   },
   {
-      path: '/cn/breakfast-saucesFood/chocolates',
+      path: '/cn/breakfast/breakfast-cereals',
       img: '/category/GroceryAndKitchen/breakfast/2.webp',
-      title:'Chocolates'
+      title:'Breakfast Cereals'
   },
   {
-      path: '/cn/breakfast-saucesd/indian-mithai',
+      path: '/cn/breakfast/ketchup-sauces',
       img: '/category/GroceryAndKitchen/breakfast/3.webp',
-      title:'Indian Mithai'
+      title:'Ketchup & Sauces'
   },
   {
-      path: '/cn/breakfast-sauces/pastries-cakes',
+      path: '/cn/breakfast/muesli-oats',
       img: '/category/GroceryAndKitchen/breakfast/4.webp',
-      title:'Pastries & Cakes'
+      title:'Muesli & Oats'
   },
   {
-      path: '/cn/breakfast-saucesd/dessert-mixes',
+      path: '/cn/breakfast/honey-spreads',
       img: '/category/GroceryAndKitchen/breakfast/5.webp',
-      title:'Dessert Mixes'
+      title:'Honey & Spreads'
   },
   {
-      path: '/cn/breakfast-sauces/candies-gums-mints',
+      path: '/cn/breakfast/peanut-butter',
       img: '/category/GroceryAndKitchen/breakfast/6.webp',
-      title:'Candies, Gums & Mints'
+      title:'Peanut Butter'
   },
   {
-      path: '/cn/breakfast-sauces/premium-chocolates',
+      path: '/cn/breakfast/batter-mixes',
       img: '/category/GroceryAndKitchen/breakfast/7.webp',
-      title:'Premium Chocolates'
+      title:' Batter & Mixes'
   },
   {
-      path: '/cn/breakfast-sauces/premium-chocolates',
+      path: '/cn/breakfast/tea-coffee',
       img: '/category/GroceryAndKitchen/breakfast/8.webp',
-      title:'Premium Chocolates'
+      title:'Tea & Coffee'
   },
-  {
-      path: '/cn/breakfast-sauces/premium-chocolates',
-      img: '/category/GroceryAndKitchen/breakfast/9.webp',
-      title:'Premium Chocolates'
-  },
+
 ]
