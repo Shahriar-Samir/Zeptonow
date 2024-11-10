@@ -6,31 +6,31 @@ import React from "react";
 const SnacksAndDrinks = () => {
     const SnacksAndDrinksSubCategories: categoryType[] = [
         {
-          img: "/category/1.webp",
+          img: "/category/SnacksAndDrinks/1.webp",
           link: "/cn/tea-coffee-more/top-picks",
         },
         {
-          img: "/category/2.webp",
+          img: "/category/SnacksAndDrinks/2.webp",
           link: "/cn/icecreams-more/top-picks",
         },
         {
-          img: "/category/3.webp",
+          img: "/category/SnacksAndDrinks/3.webp",
           link: "/cn/frozen-food/top-picks",
         },
         {
-          img: "/category/4.webp",
+          img: "/category/SnacksAndDrinks/4.webp",
           link: "/cn/sweet-cravings/top-picks",
         },
         {
-          img: "/category/5.webp",
+          img: "/category/SnacksAndDrinks/5.webp",
           link: "/cn/cold-drinks-juices/top-picks",
         },
         {
-          img: "/category/6.webp",
+          img: "/category/SnacksAndDrinks/6.webp",
           link: "/cn/munchies/top-picks",
         },
         {
-          img: "/category/7.webp",
+          img: "/category/SnacksAndDrinks/7.webp",
           link: "/cn/biscuits-cookies/top-picks",
         },
       ];
