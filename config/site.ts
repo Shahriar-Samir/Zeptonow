@@ -292,7 +292,7 @@ export const biscuits:subCategoryType[] = [
   },
   {
       path: '/cn/biscuits-cookies/rusk',
-      img: '/category/SnacksAndDrinks/biscuits/7.webp',
+      img: '/category/SnacksAndDrinks/biscuits/9.webp',
       title:'Rusk & Khari'
   },
 ]
