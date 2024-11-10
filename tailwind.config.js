@@ -1,4 +1,4 @@
-import {nextui} from '@nextui-org/theme'
+
 import daisyui from 'daisyui'
 
 /** @type {import('tailwindcss').Config} */
@@ -22,8 +22,10 @@ const styleExports = {
       },
     },
   },
-  darkMode: "class",
-  plugins: [nextui(),daisyui],
+  plugins: [daisyui],
+  daisyui:{
+    themes:['light']
+  }
 }
 
 export default styleExports;

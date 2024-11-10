@@ -1,12 +1,9 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
-import clsx from "clsx";
-
-import { Providers } from "./providers";
-import { fontMono, fontPoppins, fontSans } from "@/config/fonts";
+import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
+import clsx from "clsx";
 
 export const metadata: Metadata = {
   title: {
@@ -37,7 +34,6 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "white" }}>
           <div className="relative flex flex-col !text-black">
             <Navbar />
             <main className="">
@@ -45,7 +41,7 @@ export default function RootLayout({
             </main>
             <Footer/>
           </div>
-        </Providers>
+
       </body>
     </html>
   );

@@ -40,7 +40,7 @@ const Footer = () => {
   <Link href='#' className="link link-hover text-black font-font2">Health & Baby Care</Link>
   </nav>
 </footer>
-<footer className="footer text-base-content border-t px-5 py-4 pb-28 gap-32">
+<footer className="footer grid-flow-row lg:grid-flow-col text-base-content border-t px-5 py-4 pb-28 gap-32">
   <section className='flex flex-col'>
       <Image height={100} width={100} alt='logo2' src='/primary-logo2.svg'/>
       <div className='flex gap-5 items-center'>
@@ -67,8 +67,8 @@ const Footer = () => {
   </nav>
   <nav className='flex flex-col gap-4'>
   <Link href='#' className="link link-hover font-font2 text-black">Download App</Link>
-    <button className='text-black flex gap-2 border  border-[#D1D5DB] rounded-lg font-font2 py-4 px-10'><Image height={15} width={15} alt='' src='/icons/play-store.svg'/> Get it on play store</button>
-    <button className='text-black flex gap-2 border  border-[#D1D5DB] rounded-lg font-font2 py-4 px-10'><Image height={15} width={15} alt='' src='/icons/app-store.svg'/>Get it on app store</button>
+    <button className='text-black flex gap-2 border  border-[#D1D5DB] rounded-lg font-font2 py-4 px-5 xl:px-10 w-max'><Image height={15} width={15} alt='' src='/icons/play-store.svg'/> Get it on play store</button>
+    <button className='text-black flex gap-2 border  border-[#D1D5DB] rounded-lg font-font2 py-4  px-5 xl:px-10 w-max'><Image height={15} width={15} alt='' src='/icons/app-store.svg'/>Get it on app store</button>
   </nav>
 </footer>
         </footer>

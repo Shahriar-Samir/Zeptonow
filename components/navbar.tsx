@@ -31,9 +31,10 @@ export const Navbar = () => {
   return (
 
       <nav className="flex flex-col md:flex-row justify-between md:items-center bg-[#D1ABFF] md:bg-gradient-to-b md:from-[#EEE0FF] md:to-[#FEFDFF] px-2 py-4 pb-8 md:px-16 gap-5 sticky top-0 z-50">
-      <div className="flex gap-5 items-center">
+      <div className="flex gap-2 md:gap-5 items-center">
         <div className="gap-3">
           <NextLink className="flex justify-start items-center gap-1" href="/">
+          <Image height={54} width={54} alt="user" src="/icons/user.svg" className="md:hidden "/>
             <Image width={90} height={30} alt={'logo'} src="/primary-logo.svg" className="hidden md:inline min-w-[90px] min-h-[30px]"/>
           </NextLink>
         </div>
@@ -66,7 +67,7 @@ export const Navbar = () => {
         className="flex w-full gap-5"
       >
         <div className="flex w-full bg-[#FFFFFF] rounded-lg py-3 px-4 gap-5">
-          <Image height={50} width={50} alt="search icon" src="/search-icon.svg" className="h-[20px] w-[20px] hidden md:inline"/>         
+          <Image height={50} width={50} alt="search icon" src="/search-icon.svg" className="h-[20px] w-[20px] "/>         
           <p className="font-font1">Search for </p>
         </div>
         <div className="hidden md:flex gap-5">
