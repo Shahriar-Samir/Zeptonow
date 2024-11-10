@@ -81,39 +81,39 @@ export const sweetCravings:subCategoryType[] = [
 // munchies
 export const munchies:subCategoryType[] = [
   {
-      path: '/cn/sweet-cravings/top-picks',
+      path: '/cn/munchies/top-picks',
       img: '/category/SnacksAndDrinks/munchies/1.webp',
       title:'Top Picks'
   },
   {
-      path: '/cn/sweet-cravings/chocolates',
+      path: '/cn/munchies/chips',
       img: '/category/SnacksAndDrinks/munchies/2.webp',
-      title:'Chocolates'
+      title:'Chips & Crisps'
   },
   {
-      path: '/cn/sweet-cravings/indian-mithai',
+      path: '/cn/munchies/namkeens',
       img: '/category/SnacksAndDrinks/munchies/3.webp',
-      title:'Indian Mithai'
+      title:'Namkeens'
   },
   {
-      path: '/cn/sweet-cravings/pastries-cakes',
+      path: '/cn/munchies/nachos',
       img: '/category/SnacksAndDrinks/munchies/4.webp',
-      title:'Pastries & Cakes'
+      title:'Nachos'
   },
   {
-      path: '/cn/sweet-cravings/dessert-mixes',
+      path: '/cn/munchies/popcorn',
       img: '/category/SnacksAndDrinks/munchies/5.webp',
-      title:'Dessert Mixes'
+      title:'Popcorn'
   },
   {
-      path: '/cn/sweet-cravings/candies-gums-mints',
+      path: '/cn/munchies/dry-fruits',
       img: '/category/SnacksAndDrinks/munchies/6.webp',
-      title:'Candies, Gums & Mints'
+      title:'Dry Fruits & Nuts Munchies '
   },
   {
-      path: '/cn/sweet-cravings/premium-chocolates',
+      path: '/cn/munchies/energy-bars',
       img: '/category/SnacksAndDrinks/munchies/7.webp',
-      title:'Premium Chocolates'
+      title:'Energy Bars'
   },
 ]
 
@@ -125,35 +125,40 @@ export const frozenFoods:subCategoryType[] = [
       title:'Top Picks'
   },
   {
-      path: '/cn/frozen-food/chocolates',
+      path: '/cn/frozen-food/veg',
       img: '/category/SnacksAndDrinks/frozenFoods/2.webp',
-      title:'Chocolates'
+      title:'Veg Snacks'
   },
   {
-      path: '/cn/frozen-food/indian-mithai',
+      path: '/cn/frozen-food/nonveg',
       img: '/category/SnacksAndDrinks/frozenFoods/3.webp',
-      title:'Indian Mithai'
+      title:'Non Veg Snacks'
   },
   {
-      path: '/cn/frozen-food/pastries-cakes',
+      path: '/cn/frozen-food/momos',
       img: '/category/SnacksAndDrinks/frozenFoods/4.webp',
-      title:'Pastries & Cakes'
+      title:'Momos & More'
   },
   {
-      path: '/cn/frozen-food/dessert-mixes',
+      path: '/cn/frozen-food/raw-meats',
       img: '/category/SnacksAndDrinks/frozenFoods/5.webp',
-      title:'Dessert Mixes'
+      title:'Raw Meats'
   },
   {
-      path: '/cn/frozen-food/candies-gums-mints',
+      path: '/cn/frozen-food/roti-paratha',
       img: '/category/SnacksAndDrinks/frozenFoods/6.webp',
-      title:'Candies, Gums & Mints'
+      title:'Roti & Paratha'
   },
   {
-      path: '/cn/frozen-food/premium-chocolates',
+      path: '/cn/frozen-food/sausages',
       img: '/category/SnacksAndDrinks/frozenFoods/7.webp',
-      title:'Premium Chocolates'
+      title:'Sausages Salami & Ham'
   },
+  {
+    path: '/cn/frozen-food/frozen',
+    img: '/category/SnacksAndDrinks/frozenFoods/8.webp',
+    title:'Frozen Veggies & Pulp'
+},
 ]
 // icecreams
 export const icecreams:subCategoryType[] = [
@@ -202,35 +207,50 @@ export const coldDrinks:subCategoryType[] = [
       title:'Top Picks'
   },
   {
-      path: '/cn/cold-drinks-juices/chocolates',
+      path: '/cn/cold-drinks-juices/soft-drinks',
       img: '/category/SnacksAndDrinks/coldDrinks/2.webp',
-      title:'Chocolates'
+      title:'Soft Drinks'
   },
   {
-      path: '/cn/cold-drinks-juices/indian-mithai',
+      path: '/cn/cold-drinks-juices/fruit-juices',
       img: '/category/SnacksAndDrinks/coldDrinks/3.webp',
-      title:'Indian Mithai'
+      title:'Fruit Juices & Drinks'
   },
   {
-      path: '/cn/cold-drinks-juices/pastries-cakes',
+      path: '/cn/cold-drinks-juices/non-alcoholic',
       img: '/category/SnacksAndDrinks/coldDrinks/4.webp',
-      title:'Pastries & Cakes'
+      title:'Non-Alcoholic & Energy Drink'
   },
   {
-      path: '/cn/cold-drinks-juices/dessert-mixes',
+      path: '/cn/cold-drinks-juices/water',
       img: '/category/SnacksAndDrinks/coldDrinks/5.webp',
-      title:'Dessert Mixes'
+      title:'Water'
   },
   {
-      path: '/cn/cold-drinks-juices/candies-gums-mints',
+      path: '/cn/cold-drinks-juices/soda-mixers',
       img: '/category/SnacksAndDrinks/coldDrinks/6.webp',
-      title:'Candies, Gums & Mints'
+      title:'Soda & Mixers'
   },
   {
-      path: '/cn/cold-drinks-juices/premium-chocolates',
+      path: '/cn/cold-drinks-juices/instant-drink',
       img: '/category/SnacksAndDrinks/coldDrinks/7.webp',
-      title:'Premium Chocolates'
+      title:'Instant Drink Mixes'
   },
+  {
+      path: '/cn/cold-drinks-juices/milk',
+      img: '/category/SnacksAndDrinks/coldDrinks/8.webp',
+      title:'Milk Drinks'
+  },
+  {
+      path: '/cn/cold-drinks-juices/vegan',
+      img: '/category/SnacksAndDrinks/coldDrinks/10.webp',
+      title:'Vegan Drinks'
+  },
+  {
+    path: '/cn/cold-drinks-juices/top-deals',
+    img: '/category/SnacksAndDrinks/coldDrinks/9.webp',
+    title:'Top Deals'
+},
 ]
 
 // biscuits-cookies
@@ -241,34 +261,39 @@ export const biscuits:subCategoryType[] = [
       title:'Top Picks'
   },
   {
-      path: '/cn/biscuits-cookies/chocolates',
+      path: '/cn/biscuits-cookies/creamfills',
       img: '/category/SnacksAndDrinks/biscuits/2.webp',
-      title:'Chocolates'
+      title:'Creamfills'
   },
   {
-      path: '/cn/biscuits-cookies/indian-mithai',
+      path: '/cn/biscuits-cookies/cookies',
       img: '/category/SnacksAndDrinks/biscuits/3.webp',
-      title:'Indian Mithai'
+      title:'Cookies'
   },
   {
-      path: '/cn/biscuits-cookies/pastries-cakes',
+      path: '/cn/biscuits-cookies/crackers',
       img: '/category/SnacksAndDrinks/biscuits/4.webp',
-      title:'Pastries & Cakes'
+      title:'Crackers'
   },
   {
-      path: '/cn/biscuits-cookies/dessert-mixes',
+      path: '/cn/biscuits-cookies/wafers',
       img: '/category/SnacksAndDrinks/biscuits/5.webp',
-      title:'Dessert Mixes'
+      title:'Wafers'
   },
   {
-      path: '/cn/biscuits-cookies/candies-gums-mints',
+      path: '/cn/biscuits-cookies/glucose',
       img: '/category/SnacksAndDrinks/biscuits/6.webp',
-      title:'Candies, Gums & Mints'
+      title:'Glucose & Marie'
   },
   {
-      path: '/cn/biscuits-cookies/premium-chocolates',
+      path: '/cn/biscuits-cookies/Digestives',
       img: '/category/SnacksAndDrinks/biscuits/7.webp',
-      title:'Premium Chocolates'
+      title:'Digestives'
+  },
+  {
+      path: '/cn/biscuits-cookies/rusk',
+      img: '/category/SnacksAndDrinks/biscuits/7.webp',
+      title:'Rusk & Khari'
   },
 ]
 

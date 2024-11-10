@@ -24,7 +24,7 @@ const Subcategory = (props: { params: { subcategory: string, category:string } }
       <Sidebar category={category}/>
       <section className="px-3 w-10/12">
       <h1 className="px-5 py-5 text-2xl font-font4 capitalize">{subcategory}</h1>
-      <section className="mt-3 grid grid-cols-6 gap-3">
+      <section className="mt-3 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-10 md:gap-3">
         {products.map((item) => {
           return (
            <Link href={`/pn/${item.name}`}>

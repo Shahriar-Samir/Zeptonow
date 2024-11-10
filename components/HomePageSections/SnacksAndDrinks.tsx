@@ -39,7 +39,7 @@ const SnacksAndDrinks = () => {
         <main>
         <section>
         <h1 className="text-xl font-font4">Snacks & Drinks</h1>
-        <section className="grid grid-cols-8 gap-5 mt-6">
+        <section className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-5 mt-6">
           {SnacksAndDrinksSubCategories.map((item,index)=>{
             if (index === 0) {
                   return <Link href={item.link} key={index} className="col-span-2 flex flex-col items-center gap-2 ">
