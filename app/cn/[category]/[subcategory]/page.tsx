@@ -3,12 +3,16 @@
 
 import Sidebar from "@/components/sidebar";
 import { updateProducts } from "@/config/products";
+import { ProductsType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+
+
+
 const Subcategory = (props: { params: { subcategory: string, category:string } }) => {
-  const [products,setProducts] = useState([])
+  const [products,setProducts] = useState<ProductsType[]>([])
 
 
   const {
@@ -27,9 +31,8 @@ const Subcategory = (props: { params: { subcategory: string, category:string } }
       <section className="mt-3 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-10 md:gap-3">
         {products.map((item) => {
           return (
-           <Link href={`/pn/${item.name}`}>
+           <Link key={item.name} href={`/pn/${item?.name}`}>
             <article
-              key={item}
               className="card h-[350px] flex flex-col justify-between  "
             >
               <div className="relative rounded-xl overflow-hidden">

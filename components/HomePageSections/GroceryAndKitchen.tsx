@@ -29,7 +29,7 @@ const GroceryAndKitchen = () => {
         <section className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-5 mt-6">
           {GroceryAndKitchenSubCategories.map((item,index)=>{
                   return  <Link href={item.link} key={index} className="flex flex-col items-center gap-2 ">
-                <Image width={300} height={300} alt="example" src={item.img}/>
+                <Image width={300} height={300} alt="example" src={item.img? item.img:''}/>
             </Link>
           })}
         </section>

@@ -6,14 +6,11 @@ import Footer from "@/components/footer";
 import clsx from "clsx";
 
 export const metadata: Metadata = {
-  title: {
-    default:'',
-  },
+  title: 'Welcome to Zepto',
   icons: {
-    icon: "/favicon.ico",
+    icon: '/icon.ico',
   },
 };
-
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },

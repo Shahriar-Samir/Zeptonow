@@ -43,7 +43,7 @@ const SnacksAndDrinks = () => {
           {SnacksAndDrinksSubCategories.map((item,index)=>{
             if (index === 0) {
                   return <Link href={item.link} key={index} className="col-span-2 flex flex-col items-center gap-2 ">
-                              <Image width={300} height={300} alt="example" src={item.img}/>
+                              <Image width={300} height={300} alt="example" src={item.img? item.img:''}/>
                           </Link>
                 }
                 else{

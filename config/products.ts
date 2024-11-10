@@ -1,4 +1,6 @@
-const products = [
+import { ProductType } from "@/types"
+
+const products: ProductType[] = [
     {
         name:'24 Mantra Organic Low Gi Rice',
         unit: '5 kg',
@@ -416,7 +418,6 @@ const products = [
         description: "You can rest easy with MuscleBlaze Fit High Protein Oats which is un-berry-ably good and defi-nut-ly awesome for your crazy mornings! It is great for vegetarians or anyone looking to add more protein to their diet, it provides 22 g protein per 100 g. It is a vegetarian source of protein that is also high in fibre and antioxidants. High fibre helps to maintain bowel movement and benefits heart health. Both protein and fibre are fulfilling so you are likely to eat less which is great for weight management.",
         life: '9 months',
         origin:"India",
-        howToUse: "For every cup of Oats (50 g), add 1 1/2 cups (250 ml) of water/milk in a pan. Cook for 3 minutes on a medium flame or microwave for 3 minutes on fullpower.",
         manufacturer: 'VLS Foods Private Limited',
         manufacturerAddress: 'H-550,551,716, Phase – 1, Industrial Area, Bhiwadi, Alwar, Rajasthan-301019',
     },
@@ -547,7 +548,6 @@ const products = [
         description: "Everything's better with chocolate so why should your peanut butter be any different? Get the best of dark chocolate with MuscleBlaze Fit Chocolate Peanut Butter. A truly guilt-free snacking experience with your customized recipes is a fun way to get the energy boost you need to power through your day. Protein helps build muscles, increases muscle recovery, and keeps you full for longer. Fibre supports weight management and enhances overall digestive health.",
         life: '12 months',
         origin:'India',
-        howToUse:"02 Tablespoons of this product give as much protein as 3 egg whites. Sp go ahead spread it on a slice of bread or have it the way you love.",
         manufacturer: 'Mother Nutri Foods Private Limited',
         manufacturerAddress: 'Survey No. 276/1, Opp. Petrol Pump, Mahuva- Bhavnagar Highway, Village : Otha, Ta : Mahuva, Bhavnagar, Gujarat-364295',
     },
@@ -562,8 +562,7 @@ const products = [
         description: "iD Idli and Dosa Batter will make sure that the magic of age-old tradition is not lost by giving you the wholesomeness of the unsophisticated home-style food. Only fresh and high-quality ingredients used and no added preservatives. With this ready-made batter, everyone can make a delicious breakfast. Save time and energy on making the batter from scratch. Make soft and fluffy idlis or crispy dosas in a jiffy.",
         life: '9 Days',
         origin:'India',
-        ingerdients:"Rice, Urad Dal, Methi Seeds, Ro-Purified Water and Low Sodium Salt",
-        howToUse:"02 Tablespoons of this product give as much protein as 3 egg whites. Sp go ahead spread it on a slice of bread or have it the way you love.",
+        ingredients:"Rice, Urad Dal, Methi Seeds, Ro-Purified Water and Low Sodium Salt",
         manufacturer: 'iD Fresh Food India Pvt Ltd',
         manufacturerAddress: 'iD Fresh Food India Pvt Ltd, Sy. Nos. 515/2, 515/3, 515/4, 516/2, 516/3, 516/4, 533, Madivala Village, Kasaba Hobli, Attibele, Anekal Taluk, Bangalore -562107, Karnataka.',
         nutritionalInfo:" Energy 143.35kcal; Protein 5.5g; Fat 1.6g; Saturated Fatty Acid 0.68g; MUFA 0.52g; Sugar 0g; PUFA 0.3g; Trans Fatty Acid 0g; Cholesterol 0mg; Carbohydrates 26.3g; Sodium 92mg;",
@@ -581,8 +580,7 @@ const products = [
         description: "iD Idli and Dosa Batter will make sure that the magic of age-old tradition is not lost by giving you the wholesomeness of the unsophisticated home-style food. Only fresh and high-quality ingredients used and no added preservatives. With this ready-made batter, everyone can make a delicious breakfast. Save time and energy on making the batter from scratch. Make soft and fluffy idlis or crispy dosas in a jiffy.",
         life: '9 Days',
         origin:'India',
-        ingerdients:"Rice, Urad Dal, Methi Seeds, Ro-Purified Water and Low Sodium Salt",
-        howToUse:"02 Tablespoons of this product give as much protein as 3 egg whites. Sp go ahead spread it on a slice of bread or have it the way you love.",
+        ingredients:"Rice, Urad Dal, Methi Seeds, Ro-Purified Water and Low Sodium Salt",
         manufacturer: 'iD Fresh Food India Pvt Ltd',
         manufacturerAddress: 'iD Fresh Food India Pvt Ltd, Sy. Nos. 515/2, 515/3, 515/4, 516/2, 516/3, 516/4, 533, Madivala Village, Kasaba Hobli, Attibele, Anekal Taluk, Bangalore -562107, Karnataka.',
         nutritionalInfo:" Energy 143.35kcal; Protein 5.5g; Fat 1.6g; Saturated Fatty Acid 0.68g; MUFA 0.52g; Sugar 0g; PUFA 0.3g; Trans Fatty Acid 0g; Cholesterol 0mg; Carbohydrates 26.3g; Sodium 92mg;",
@@ -617,7 +615,7 @@ const products = [
         description: " Taj Mahal Tea 500 g (Carton) Over 50 Glorious years of Excellence, When the history of tea is written down, 1966 will be a celebrated chapter . For in that year, Brooke Bond Taj Mahal Tea was born, with a promise - To foster excellence in each tea cup. Fifty years on, we have not forgotten that promise. As an age old brand, we have built credential of Great Tasting tea by focusing on our consistently superior quality. Every Taj Mahal cup is created by tea tasters who approve the blend by tasting 1000s of teas then graded and blended to perfection.",
         life: '12 months',
         origin:'India',
-        ingerdients:'Tea Leaves',
+        ingredients:'Tea Leaves',
         manufacturer:'Hindustan Unilever Ltd',
         manufacturerAddress: 'Hindustan Unilever Limited Levercare, Po Box 14760, Mumbai 400099.',
     },
@@ -634,7 +632,7 @@ const products = [
         description: "Chai is more than a cup of tea; rather it is an integral part of the culture and life of every Indian. While drinking chai is enjoyed across the country, people like their cup in India vary across regions. Tata Tea Premium- Desh ki Chai, sourced solely from India, understands these varying taste preferences and hence our tea experts have crafted a unique blend that chai lovers across India will enjoy. Blended since 1985.",
         life: '12 months',
         origin:'India',
-        ingerdients:'Tea',
+        ingredients:'Tea',
         manufacturer:'Tata Global Beverages Ltd',
         manufacturerAddress: 'Tata Global Beverages Ltd, 3rd Floor Block C, Kirloskar Business Park, Hebbal, Bengaluru 560024.',
     },
@@ -1626,8 +1624,6 @@ const products = [
         {
             "name": "Bournvita 5 Star Magic Nutrition Drink Jar",
             "discountedPrice": 280,
-            "price": null,
-            "discount": null,
             "unit": "500 g",
             "model": "Bournvita 5 Star Magic",
             "subcategory": "milk-drink-mixes",
@@ -1662,8 +1658,6 @@ const products = [
         {
             "name": "Bournvita Chocolate Nutrition Drink Jar",
             "discountedPrice": 255,
-            "price": null,
-            "discount": null,
             "unit": "500 g",
             "model": "Bournvita Chocolate",
             "subcategory": "milk-drink-mixes",
@@ -1695,7 +1689,7 @@ const products = [
             "nutritionalInfo": null,
             "manufacturer": null,
             "manufacturerAddress": null,
-            "FssaiLicense": null
+            "FSSAILicense": null
         },
         {
             "name": "Nescafe Chilled Latte Ready To Drink 180 ml Combo",
@@ -1714,7 +1708,7 @@ const products = [
             "nutritionalInfo": null,
             "manufacturer": "Bio Veda Farmacy Private Limited",
             "manufacturerAddress": null,
-            "FssaiLicense": null
+            "FSSAILicense": null
         },
         {
             "name": "Nescafe Chilled Latte Ready To Drink 180 ml Combo 3x",
@@ -1733,7 +1727,7 @@ const products = [
             "nutritionalInfo": null,
             "manufacturer": "Bio Veda Farmacy Private Limited",
             "manufacturerAddress": null,
-            "FssaiLicense": null
+            "FSSAILicense": null
         },
         {
             "name": "Amul Dark Chocolate Bar",
@@ -1752,7 +1746,7 @@ const products = [
             "nutritionalInfo": "Energy (kcal) - 556, Protein (g) - 7.1, Carbohydrates (g) - 55, Fat (g) - 34.2",
             "manufacturer": "Gujarat Co-Operative Milk Marketing Federation",
             "manufacturerAddress": "Gujarat Co-Operative Milk Marketing Federation, Po Box 10, Amul Dairy Road, Anand 388 001, Gujarat, India.",
-            "FssaiLicense": "10012021000071"
+            "FSSAILicense": "10012021000071"
         },
         {
             "name": "Amul Fruit 'N' Nut Chocolate",
@@ -1771,7 +1765,7 @@ const products = [
             "nutritionalInfo": "Energy (kcal) - 556, Protein (g) - 7.1, Carbohydrates (g) - 55, Fat (g) - 34.2",
             "manufacturer": "Gujarat Co-Operative Milk Marketing Federation",
             "manufacturerAddress": "Gujarat Co-Operative Milk Marketing Federation, Po Box 10, Amul Dairy Road, Anand 388 001, Gujarat, India.",
-            "FssaiLicense": "10012021000071"
+            "FSSAILicense": "10012021000071"
         },     
         {
             "name": "Cadbury Dairy Milk Silk Chocolate Home Treats",
@@ -1790,7 +1784,7 @@ const products = [
             "nutritionalInfo": "Serving size: 9 g; No. of Servings per package: 17* Nutrition Information (per 100 g) * - Energy 543 kcal, Protein 7.6 g, Carbohydrate 58.5g, Total Sugars 55.3g, Added Sugars 45.9 g, Total Fat 31.4 g, Saturated Fat 21.5g, Trans Fat 0.1 g, Cholesterol 26.7 mg, Sodium 125 mg % RDA^ per serve- Energy 2%, Added Sugars 8%, Total Fat 4%, Saturated Fat 9%, Trans Fat 0%, Sodium 1%",
             "manufacturer": "Mondelez India Foods Private Limited",
             "manufacturerAddress": "Mondelez India Food Pvt. Ltd, Unit No. 2001, 20th Floor, Tower-3 (Wing C), Indiabulls Finance Centre, Parel, Mumbai, Maharashtra.",
-            "FssaiLicense": null
+            "FSSAILicense": null
         },
         {
             "name": "Cadbury Dairy Milk Chocolate Home Treats",
@@ -1809,7 +1803,7 @@ const products = [
             "nutritionalInfo": "Protein - 8.1g, Fat - 28.9g, Of which saturated fat - 17.5g, Trans Fat - 0.2g, Energy Kcal - 534, Carbohydrate - 60.4g, Of which sugars - 57.3g, Sodium - 156mg",
             "manufacturer": "Mondelez India Food Pvt. Ltd",
             "manufacturerAddress": "Mondelez India Food Pvt. Ltd, Unit No. 2001, 20th Floor, Tower-3 (Wing C), Indiabulls Finance Centre, Parel, Mumbai, Maharashtra - 400013.",
-            "FssaiLicense": "10014022002711"
+            "FSSAILicense": "10014022002711"
         },        
         {
             "name": "Cadbury Perk Chocolate Coated Wafer Home Treats",
@@ -1828,7 +1822,7 @@ const products = [
             "nutritionalInfo": "Protein - 3.9g, Fat - 25.1g, Of which saturated fat - 22.6g, Trans Fat - 0.2g, Energy Kcal - 517, Carbohydrate - 68.3g, Of which sugars - 44.6g, Sodium - 93mg",
             "manufacturer": "Mondelez India Foods Private Limited",
             "manufacturerAddress": "Mondelez India Food Pvt. Ltd, Unit No. 2001, 20th Floor, Tower-3 (Wing C), Indiabulls Finance Centre, Parel, Mumbai, Maharashtra.",
-            "FssaiLicense": "10014022002711"
+            "FSSAILicense": "10014022002711"
         },
         {
             "name": "Amul Chocominis Chocolate Combo",
@@ -2225,7 +2219,7 @@ const products = [
             "description": "Red Bull Energy Drink - Wings when you need them. Red Bull Energy Drink is a functional beverage and its formula contains high quality ingredients: Caffeine, Taurine, some B-group Vitamins, Sugars, and water. Vitalizes Body and Mind®. Red Bull cans are made of 100% recyclable aluminium. Red Bull is appreciated worldwide by top athletes, busy professionals, university students, and travelers on long journeys. Red Bull produces a variety of energy drinks in both sugar and sugar-free varieties. This is a 6-pack (250 ml each) Red Bull Energy Drink.",
             "origin": "Austria",
             "life": "24 months",
-            "FSSAI License": "10012022000719",
+            "FSSAILicense": "10012022000719",
             "manufacturer": "Rauch Fruchtsafte Gmbh & Co",
             "manufacturerAddress": "Rauch Fruchtsafte Gmbh & Co OG 6714 Nuziders, Kuhbruck weg 2, Austria +43 662 65820"
         },
@@ -2241,7 +2235,7 @@ const products = [
             "description": "Red Bull Energy Drink - Wings when you need them. Red Bull Energy Drink is a functional beverage and its formula contains high quality ingredients: Caffeine, Taurine, some B-group Vitamins, Sugars, and water. Vitalizes Body and Mind®. Red Bull cans are made of 100% recyclable aluminium. Red Bull is appreciated worldwide by top athletes, busy professionals, university students, and travelers on long journeys. Red Bull produces a variety of energy drinks in both sugar and sugar-free varieties. This is a 4-pack (250 ml each) Red Bull Energy Drink.",
             "origin": "Austria",
             "life": "24 months",
-            "FSSAI License": "10012022000719",
+            "FSSAILicense": "10012022000719",
             "manufacturer": "Rauch Fruchtsafte Gmbh & Co",
             "manufacturerAddress": "Rauch Fruchtsafte Gmbh & Co OG 6714 Nuziders, Kuhbruck weg 2, Austria +43 662 65820"
         },
@@ -2296,7 +2290,7 @@ const products = [
             "description": "Red Bull Energy Drink - Wings when you need them. Red Bull Energy Drink is a functional beverage and its formula contains high quality ingredients: Caffeine, Taurine, some B-group Vitamins, Sugars, and water. Vitalizes Body and Mind®. Red Bull cans are made of 100% recyclable aluminium. Red Bull is appreciated worldwide by top athletes, busy professionals, university students, and travelers on long journeys. Red Bull produces a variety of energy drinks in both sugar and sugar-free varieties. This is a 6-pack (250 ml each) Red Bull Energy Drink.",
             "origin": "Austria",
             "life": "24 months",
-            "FSSAI License": "10012022000719",
+            "FSSAILicense": "10012022000719",
             "manufacturer": "Rauch Fruchtsafte Gmbh & Co",
             "manufacturerAddress": "Rauch Fruchtsafte Gmbh & Co OG 6714 Nuziders, Kuhbruck weg 2, Austria +43 662 65820"
         },
@@ -2312,7 +2306,7 @@ const products = [
             "description": "Red Bull Energy Drink - Wings when you need them. Red Bull Energy Drink is a functional beverage and its formula contains high quality ingredients: Caffeine, Taurine, some B-group Vitamins, Sugars, and water. Vitalizes Body and Mind®. Red Bull cans are made of 100% recyclable aluminium. Red Bull is appreciated worldwide by top athletes, busy professionals, university students, and travelers on long journeys. Red Bull produces a variety of energy drinks in both sugar and sugar-free varieties. This is a 4-pack (250 ml each) Red Bull Energy Drink.",
             "origin": "Austria",
             "life": "24 months",
-            "FSSAI License": "10012022000719",
+            "FSSAILicense": "10012022000719",
             "manufacturer": "Rauch Fruchtsafte Gmbh & Co",
             "manufacturerAddress": "Rauch Fruchtsafte Gmbh & Co OG 6714 Nuziders, Kuhbruck weg 2, Austria +43 662 65820"
         },
@@ -2417,7 +2411,7 @@ const products = [
             "description": "So Good Almond Beverage Unsweetened is a delicious plant-based beverage made from the finest almonds. It has no added sugar and is Dairy free, Lactose free, and Gluten free making it an ideal choice for a healthy lifestyle. Drink it as is or add to your tea, coffee, cereal bowl, smoothies, or any other dish and explore the endless ways with this versatile drink. It's 50% lower in calories (compared to toned milk) and gives you 30% of your regular dietary requirement of calcium and 15% of vitamin B series per serve making it THE SOGOOD beverage. Add it to your daily routine and FEELSOGOOD.",
             "origin": "India",
             "life": "12 months",
-            "FssaiLicense": "FSSAI No 10012026000226",
+            "FSSAILicense": "FSSAI No 10012026000226",
             "ingredients": "Almond Milk, Dairy Free, Milk Substitute, Low Calorie, Health Drink, No Added Sugar, Gluten Free",
             "manufacturer": "Life Health Foods India Pvt Ltd",
             "manufacturerAddress": "Life Health Foods India Pvt Ltd, No.510, Atlanta Estate, Dr.Ambedkar Chowk, Off. W.E. Highway, Goregaon"
@@ -2449,7 +2443,7 @@ const products = [
             "description": "So Good Almond Beverage Unsweetened is a delicious plant-based beverage made from the finest almonds. It has no added sugar and is Dairy free, Lactose free, and Gluten free, making it an ideal choice for a healthy lifestyle. Drink it as is or add to your tea, coffee, cereal bowl, smoothies, or any other dish and explore the endless ways with this versatile drink. It's 50% lower in calories (compared to toned milk) and gives you 30% of your regular dietary requirement of calcium and 15% of vitamin B series per serve, making it THE SOGOOD beverage. Add it to your daily routine and FEELSOGOOD.",
             "origin": "India",
             "life": "12 months",
-            "FssaiLicense": "10012026000226",
+            "FSSAILicense": "10012026000226",
             "ingredients": "Almond Milk",
             "manufacturer": "Life Health Foods India Pvt Ltd",
             "manufacturerAddress": "Life Health Foods India Pvt Ltd No.510, Atlanta Estate, Dr.Ambedkar Chowk, Off. W.E. Highway, Goregaon(E), Mumbai"
@@ -2469,7 +2463,7 @@ const products = [
         },
         {
             "name": "Bisleri Packaged Drinking Water",
-            "priceDiscounted": 30,
+            "discountedPrice": 30,
             "unit": "2 l",
             "category": "cold-drinks-juices",
             "subcategory": "top-deals",
@@ -2477,14 +2471,14 @@ const products = [
             "description": "Bisleri Packaged Drinking Water.",
             "origin": "India",
             "life": "6 months",
-            "FssaiLicense": "10013022001539",
+            "FSSAILicense": "10013022001539",
             "nutritionalInfo": "Typical value per 100 ml of product. Potassium (mg) - 0.1, Magnesium (mg) - 0.2",
             "manufacturer": "BISLERI INTERNATIONAL PVT LTD",
             "manufacturerAddress": "BISLERI INTERNATIONAL PVT LTD, 29/33, UDAYAGIRI VILLAGE, DEVANAHALLI, BANGALORE-562110."
         },
         {
             "name": "Thums Up Soft Drink",
-            "priceDiscounted": 40,
+            "discountedPrice": 40,
             "unit": "750 ml",
             "category": "cold-drinks-juices",
             "subcategory": "top-deals",
@@ -2536,7 +2530,7 @@ const products = [
             "description": "Frozen Green Peas with no added colors or preservatives; Individually Quick Frozen (IQF) and trusted by ITC's own chefs. These frozen peas are perfect for any quick meal.",
             "origin": "India",
             "life": "12 months",
-            "FSSAI License": "1.0012E+13",
+            "FSSAILicense": "1.0012E+13",
             "ingredients": "Green Peas",
             "manufacturer": "ITC Limited",
             "manufacturerAddress": "ITC Limited, 37, J.L. Nehru Road, Kolkata- 700071.",
@@ -2566,7 +2560,7 @@ const products = [
             "description": "Treat yourself to the delicious crunch of ITC Master Chef Cheesy Corn Triangles Veg Frozen Snack Ready To Cook. Made with a savory blend of corn, cheese, and spices, these crispy triangles are perfect for snacking or serving as appetizers at parties. Simply fry or bake them for a quick and delicious snack that everyone will love.",
             "origin": "India",
             "life": "12 months",
-            "manufacture": "ITC-Frozen"
+            "manufacturer": "ITC-Frozen"
         },
         {
             "name": "ITC Master Chef Veggie Pizza Pocket",
@@ -2636,7 +2630,7 @@ const products = [
             "description": "Made with premium ingredients and no preservatives, each Prasuma Momo is crafted with thin wrappers that allow for a larger filling-to-wrapper ratio. These bite-sized treats are full of flavor and easy to prepare.",
             "origin": "India",
             "life": "12 months",
-            "FssaiLicense": "10012064000136",
+            "FSSAILicense": "10012064000136",
             "ingredients": "Cabbage, Refined Wheat Flour, Onion, Paneer, Butter, Carrot, Spices & Condiments, Flavour Enhancer (E621), Emulsifier (E475), Acidity Regulator (E322)",
             "manufacturer": "Ample Foods Pvt. Ltd",
             "manufacturerAddress": "Ample Foods Pvt. Ltd, Plot No. 127, Sector 6, IMT Manesar, Gurugram, Haryana - 122002"
@@ -2653,7 +2647,7 @@ const products = [
             "description": "Prasuma Momo are made with premium ingredients and no preservatives, each momo is crafted with thin wrappers that allow for a larger filling-to-wrapper ratio. These bite-sized treats are full of flavor and easy to prepare and can be microwaved, pan-fried, steamed, or deep-fried and ready to eat in as little as 2 minutes.",
             "origin": "India",
             "life": "12 months",
-            "FssaiLicense": "10012064000136",
+            "FSSAILicense": "10012064000136",
             "ingredients": "Chicken Meat, Refined Wheat Flour, Onion, Oil, Spices & Condiments, Flavour Enhancer (E621), Emulsifier (E475), Acidity Regulator (E322)",
             "manufacturer": "Ample Foods Pvt. Ltd",
             "manufacturerAddress": "Ample Foods Pvt. Ltd, Plot No. 127, Sector 6, IMT Manesar, Gurugram, Haryana - 122002"
@@ -2670,7 +2664,7 @@ const products = [
             "description": "Prasuma Momo are made with premium ingredients and no preservatives, and each momo is crafted with thin wrappers that allow for a larger filling-to-wrapper ratio. These bite-sized treats are full of flavor and easy to prepare and can be microwaved, pan-fried, steamed or deep-fried and ready to eat in as little as 2 minutes.",
             "origin": "India",
             "life": "12 months",
-            "FssaiLicense": "10012064000136",
+            "FSSAILicense": "10012064000136",
             "ingredients": "Chicken Meat, Refined Wheat Flour, Onion, Oil, Spices & Condiments, Flavour Enhancer (E621), Emulsifier (E475), Acidity Regulator (E322)",
             "manufacturer": "Ample Foods Pvt. Ltd",
             "manufacturerAddress": "Ample Foods Pvt. Ltd, Plot No. 127, Sector 6, IMT Manesar, Gurugram, Haryana - 122002"
@@ -2787,7 +2781,7 @@ const products = [
             "description": "Breakfast Sausages made from chicken are regularly eaten for breakfast around the world. It will satisfy your taste preferences. Get the perfect flavour with all the right ingredients. They will burst into a flavour in order to give your morning taste buds a real treat.",
             "origin": "India",
             "life": "12 months",
-            "FSSAI License": "FSSAI No 10014022002788",
+            "FSSAILicense": "FSSAI No 10014022002788",
             "ingredients": "Chicken Meat Water Starch Soy Protein Salt",
             "manufacturer": "Godrej Tyson Foods Ltd.",
             "manufacturerAddress": "Godrej Tyson Foods Ltd., Godrej One, 3rd floor, Piroshanagar, Eastern Highway, Vikhroli East Mumbai -79"
@@ -2815,7 +2809,7 @@ const products = [
             "description": "Frozen Green Peas with no added colors or preservatives; Individually Quick Frozen (IQF) and trusted by ITC's own chefs. These frozen peas are perfect for any quick meal.",
             "origin": "India",
             "life": "12 months",
-            "FSSAI License": "1.0012E+13",
+            "FSSAILicense": "1.0012E+13",
             "ingredients": "Green Peas",
             "manufacturer": "ITC Limited",
             "manufacturerAddress": "ITC Limited, 37, J.L. Nehru Road, Kolkata- 700071.",
@@ -2948,7 +2942,7 @@ const products = [
             "description": "Bikaneri Namkeen Bhujia is softly spicy tepary bean and gram flour noodles. It is stock up in an airtight container after opening. Do not keep cold. It's a trendy tea-time snack; however, many favor it as a side dish with their regular meals. Even fussy children love it.",
             "origin": "India",
             "life": "6 months",
-            "fssaiLicense": "10012011000213",
+            "FSSAILicense": "10012011000213",
             "ingredients": "Tapary Beans Flour (Moth), Edible Vegetable Oil, Chick Peas Flour, Salt, Red Chilli Powder, Clove Powder, Black Pepper, Dried Ginger Powder, Cardamom, Bay Leaves",
             "manufacturer": "Shubhkart India Pvt. Ltd.",
             "manufacturerAddress": "Shubhkart India Pvt. Ltd. Building No H5/2422, Vindavan Complex, Sonale Village, Bhiwandi, Mumbai Bhiwandi Maharashtra - 421302"
@@ -2969,11 +2963,9 @@ const products = [
         },
         {
             "name": "Let'S Try Roasted Chana 500 gms Combo",
-            "quantity": "500gms X 2",
+            "unit": "500gms X 2",
             "price": 204,
-            "price": 300,
             "discount": 32,
-            "unit": "500 g",
             "description": "Let'S Try Roasted Chana 500 gms Combo",
             "category": "munchies",
             "subcategory": "namkeens",
@@ -2984,11 +2976,10 @@ const products = [
         },
         {
             "name": "Doritos Nacho Cheese, 100gm 100gms Combo",
-            "quantity": "100g X 2",
+            "unit": "100g X 2",
             "discountedPrice": 76,
             "price": 100,
             "discount": 24,
-            "unit": "100 g",
             "description": "Doritos Nacho Cheese, 100gm 100gms Combo",
             "category": "munchies",
             "subcategory": "nachos",
@@ -3000,11 +2991,10 @@ const products = [
         },
         {
             "name": "Cornitos Nachos & Salsa Combo Pack 215 gms Combo",
-            "quantity": "215gms X 2",
+            "unit": "215gms X 2",
             "discountedPrice": 212,
             "price": 240,
             "discount": 11,
-            "unit": "215 g",
             "description": "Cornitos Nachos & Salsa Combo Pack 215 gms Combo",
             "category": "munchies",
             "subcategory": "nachos",
@@ -3016,11 +3006,10 @@ const products = [
         },
         {
             "name": "Doritos Dinamita Fiery Lime And Chilli",
-            "quantity": "56 g",
+            "unit": "56 g",
             "discountedPrice": 26,
             "price": 30,
             "discount": 13,
-            "unit": "56 g",
             "category": "munchies",
             "subcategory": "nachos",
             "img1": "/products/munchies/nachos/3/1.webp",
@@ -3032,11 +3021,10 @@ const products = [
         },
         {
             "name": "4700BC Microwave Popcorn - Butter 85 gms Combo",
-            "quantity": "85 g X 2",
+            "unit": "85 g X 2",
             "discountedPrice": 120,
             "price": 150,
             "discount": 20,
-            "unit": "85 g",
             "category": "munchies",
             "subcategory": "popcorn",
             "img1": "/products/munchies/popcorn/1/1.webp",
@@ -3048,11 +3036,10 @@ const products = [
         },
         {
             "name": "Act II Instant Popcorn - Classic Salted (Family Pack) 120 gms Combo",
-            "quantity": "120 g X 2",
+            "unit": "120 g X 2",
             "discountedPrice": 68,
             "price": 72,
             "discount": 5,
-            "unit": "120 g",
    "category": "munchies",
             "subcategory": "popcorn",
             "img1": "/products/munchies/popcorn/2/1.webp",
@@ -3168,7 +3155,7 @@ const products = [
         },
         {
             "name": "Open Secret Diwali Chocolate Cookies, Brownie and Dry Fruits Gift Hamper - Healthy Biscuits",
-            "quantity": "126 g",
+            "unit": "126 g",
             "price": 308,
             "discountedPrice": 350,
             "discount": 12,
@@ -3183,7 +3170,7 @@ const products = [
         },
         {
             "name": "Oreo Mini Vanilla Flavored Cream Cup",
-            "quantity": "67 g",
+            "unit": "67 g",
             "discountedPrice": 220,
             "category": "biscuits-cookies",
             "subcategory": "top-picks",
@@ -3195,7 +3182,7 @@ const products = [
         },
         {
             "name": "Royal Dansk Butter Cookies",
-            "quantity": "340 g",
+            "unit": "340 g",
             "price": 576,
             "discountedPrice": 600,
             "discount": 4,
@@ -3203,13 +3190,13 @@ const products = [
             "subcategory": "top-picks",
             "img1": "/products/biscuits/topPicks/3/1.webp",
             "description": "Royal Dansk Butter Cookies - Deliciously buttery cookies from Denmark, perfect for enjoying with tea or coffee. These cookies come in a tin and offer a classic, rich flavor in every bite.",
-            "orgin": "Denmark",
+            "origin": "Denmark",
             "life": "18 months",
             "manufacturer": "Royal Dansk"
         },
         {
             "name": "Cadbury Oreo Vanilla Flavour Crème Sandwich Biscuit",
-            "quantity": "288.75 g",
+            "unit": "288.75 g",
             "price": 83,
             "discountedPrice": 88,
             "discount": 5,
@@ -3226,11 +3213,10 @@ const products = [
         },
         {
             "name": "Sunfeast Dark Fantasy Choco Fills, Original Filled Cookies with Choco Crème",
-            "quantity": "275 g",
+            "unit": "275 g",
             "discountedPrice": 101,
             "price": 170,
             "discount": 40,
-            "unit": "275 g",
             "category": "biscuits-cookies",
             "subcategory": "creamfills",
             "img1": "/products/biscuits/creamfills/2/1.webp",
@@ -3238,17 +3224,15 @@ const products = [
             "origin": "India",
             "life": "9 months",
             "ingredients": "Choco Crème (38%), {Sugar, Refined Palmolein, Refined Palm Oil, Cocoa Solids (5.3%), Emulsifier [Lecithin (From Soybean)], Nature Identical Flavouring Substances - Chocolate and Artificial Flavouring Substances - Vanilla}, Refined Wheat Flour (Maida), Hydrogenated Vegetable Oils, Sugar, Invert Syrup, Liquid Glucose, Raising Agents [INS 503(ii), INS 500(ii), INS 450(i)], Cocoa Solids (0.7%), Butter, Milk Solids, Iodized Salt, and Emulsifiers [Lecithin (From Soybean), Mono- and Di-Glycerides of Fatty Acids (From Palm Oil)].",
-            "life": "9 months",
             "manufacturer": "ITC Ltd",
             "manufacturerAddress": "ITC Food Limited FoodDivision Plot No 1 Sector 11, Bhel, Haridwar 249403."
           },
           {
             "name": "Cadbury Oreo Chocolate Flavour Crème Sandwich Biscuit, Family Pack",
-            "quantity": "288.75 g",
+            "unit": "288.75 g",
             "discountedPrice": 83,
             "price": 88,
             "discount": 5,
-            "unit": "288.75 g",
             "category": "biscuits-cookies",
             "subcategory": "creamfills",
             "img1": "/products/biscuits/creamfills/3/1.webp",
@@ -3262,11 +3246,10 @@ const products = [
           },
           {
             "name": "Unibic Danish Coconut Cookies",
-            "quantity": "300 g",
+            "unit": "300 g",
             "discountedPrice": 90,
             "price": 150,
             "discount": 40,
-            "unit": "300 g",
             "category": "biscuits-cookies",
             "subcategory": "cookies",
             "img1": "/products/biscuits/cookies/1/1.webp",
@@ -3277,11 +3260,10 @@ const products = [
           },
           {
             "name": "Cadbury Chocobakes ChocoChip Cookies",
-            "quantity": "167 g",
+            "unit": "167 g",
             "discountedPrice": 64,
             "price": 80,
             "discount": 20,
-            "unit": "167 g",
             "category": "biscuits-cookies",
             "subcategory": "cookies",
             "img1": "/products/biscuits/cookies/2/1.webp",
@@ -3292,11 +3274,10 @@ const products = [
           },
           {
             "name": "Let's Try Sweet Celebration",
-            "quantity": "200 g (each item)",
+            "unit": "200 g (each item)",
             "discountedPrice": 393,
             "price": 880,
             "discount": 55,
-            "unit": "200 g (each item)",
             "category": "biscuits-cookies",
             "subcategory": "cookies",
             "img1": "/products/biscuits/cookies/3/1.webp",
@@ -3307,11 +3288,10 @@ const products = [
           },
           {
             "name": "Unibic Snapper Indie Spice",
-            "quantity": "300 g",
+            "unit": "300 g",
             "discountedPrice": 92,
             "price": 160,
             "discount": 42,
-            "unit": "300 g",
             "category": "biscuits-cookies",
             "subcategory": "crackers",
             "img1": "/products/biscuits/crackers/1/1.webp",
@@ -3323,7 +3303,7 @@ const products = [
           },
           {
             "name": "Unibic Snapper Cream & Onion 300 gms Combo",
-            "quantity": "300 g X 2",
+            "unit": "300 g X 2",
             "discountedPrice": 160,
             "price": 320,
             "discount": 50,
@@ -3338,7 +3318,7 @@ const products = [
           },
           {
             "name": "Parle Monaco Pizza",
-            "quantity": "311 g",
+            "unit": "311 g",
             "discountedPrice": 73,
             "price": 130,
             "discount": 43,
@@ -3352,7 +3332,7 @@ const products = [
           },
           {
             "name": "Sunfeast Dark Fantasy Choco Rolls 198 gms Combo",
-            "quantity": "198 g X 2",
+            "unit": "198 g X 2",
             "discountedPrice": 252,
             "price": 400,
             "discount": 37,
@@ -3366,7 +3346,7 @@ const products = [
           },
           {
             "name": "Dukes Waffy Chocolate Wafer Rolls 250 gms Combo",
-            "quantity": "250 g X 2",
+            "unit": "250 g X 2",
             "discountedPrice": 172,
             "price": 360,
             "discount": 52,
@@ -3380,7 +3360,7 @@ const products = [
           },
           {
             "name": "Dukes Waffy Chocolate Wafer Rolls",
-            "quantity": "250 g",
+            "unit": "250 g",
             "discountedPrice": 103,
             "price": 180,
             "discount": 42,
@@ -3390,13 +3370,13 @@ const products = [
             "description": "Like the feel of biscuits melting in the mouth? Crispy, crunchy, the sound and the accompanying sounds just heighten the effect and your palate is clamouring for more. And what do we do? Under the given circumstances with your tongue tickling, you are salivating and stomach growling, we give in! We surrender to the zesty, tasty Dukes Wafers.",
             "origin": "India",
             "life": "9 months",
-            "fssaiLicense": "10014047000055",
+            "FSSAILicense": "10014047000055",
             "manufacturer": "Dukes (Ravi Foods Pvt. Ltd)",
             "manufacturerAddress": "Dukes (Ravi Foods Pvt. Ltd), Madhuban Colony Road, Kattedan, Hyderabad-500077, India"
           },
           {
             "name": "Parle Marie Biscuit",
-            "quantity": "800 g",
+            "unit": "800 g",
             "discountedPrice": 98,
             "price": 175,
             "discount": 43,
@@ -3406,7 +3386,7 @@ const products = [
             "description": "Parle Marie biscuits are known for holding great taste and it is also nutritionally proved to be the most excellent for your strength. Crunchiness, taste and freshness, which are supreme, are presented by our Parle Marie Biscuits.",
             "origin": "India",
             "life": "9 months",
-            "FssaiLicense": "10013022002253",
+            "FSSAILicense": "10013022002253",
             "ingredients": "Wheat Flour (74%), Sugar (17.7%), Edible Vegetable Oil (10.8%), Invert Syrup (2.5%), Leavening Agents[503 (ii), 500 (ii), 341 (1)], Milk Solids (2%), Salt, Emulsifiers [322 Or 471 & 481 (i)], Dough Conditioner [223], Improver [1101 (ii)] And Antioxidant [319].",
             "manufacturer": "Parle Products Pvt. Ltd",
             "manufacturerAddress": "Parle Products Pvt. Ltd, V.S. Khandekar Marg, Vile Parle East Mumbai - 400057, Maharashtra.",
@@ -3414,7 +3394,7 @@ const products = [
           },
           {
             "name": "Parle-G Gold Biscuit",
-            "quantity": "1 kg",
+            "unit": "1 kg",
             "discountedPrice": 137,
             "price": 150,
             "discount": 8,
@@ -3430,7 +3410,7 @@ const products = [
           },
           {
             "name": "Tata Tea Premium(1kg) & Parle-G Gold Biscuit(1kg) Combo",
-            "quantity": "2 Combo",
+            "unit": "2 Combo",
             "discountedPrice": 630,
             "price": 690,
             "discount": 8,
@@ -3446,7 +3426,7 @@ const products = [
           },
           {
             "name": "Sunfeast Farmlite 5 Seed High Fibre Digestive Biscuit",
-            "quantity": "800 g",
+            "unit": "800 g",
             "discountedPrice": 124,
             "price": 240,
             "discount": 48,
@@ -3462,7 +3442,7 @@ const products = [
           },
           {
             "name": "Dukes Digestive - Natural Goodness of Oats, Wheat, and Honey (Pack of 10)",
-            "quantity": "Pack of 10",
+            "unit": "Pack of 10",
             "discountedPrice": 171,
             "price": 300,
             "discount": 43,
@@ -3477,7 +3457,7 @@ const products = [
           },
           {
             "name": "McVitie's Digestive High Fibre Biscuits With Goodness Of Wholewheat, Super Saver Family Pack",
-            "quantity": "1 kg",
+            "unit": "1 kg",
             "discountedPrice": 123,
             "price": 250,
             "discount": 50,
@@ -3492,7 +3472,7 @@ const products = [
           },
           {
             "name": "Let'S Try Fruits Cake Rusk",
-            "quantity": "200 g",
+            "unit": "200 g",
             "discountedPrice": 151,
             "price": 220,
             "discount": 31,
@@ -3506,7 +3486,7 @@ const products = [
           },
           {
             "name": "Britannia Toastea Premium Bake Rusk Family Pack",
-            "quantity": "1 kg",
+            "unit": "1 kg",
             "discountedPrice": 182,
             "price": 220,
             "discount": 17,
@@ -3520,7 +3500,7 @@ const products = [
           },
           {
             "name": "Let'S Try Fruits Cake Rusk 200 gms Combo",
-            "quantity": "200gms X 2",
+            "unit": "200gms X 2",
             "discountedPrice": 222,
             "price": 440,
             "discount": 49,
@@ -3547,7 +3527,7 @@ const products = [
              
 ]
 
-export const updateProducts = (category:string,subcategory:string,setProduct)=>{
+export const updateProducts = (category:string,subcategory:string,setProduct:any)=>{
     const categoryProducts = products.filter(item=>{
         return item.category === category
     })
@@ -3557,11 +3537,11 @@ export const updateProducts = (category:string,subcategory:string,setProduct)=>{
     return setProduct(subcategoryProducts)
 }
 
-export const getProduct = (product:string,setProduct)=>{
+export const getProduct = (product:string,setProduct:any)=>{
     const parsedProduct = product.replace('%25','%').replace('%2C',',').replace('%2F','/').replace('%2C',',')
     console.log(parsedProduct, 'okay')
     const productNew = products.filter(item=>{
-        const newName = item.name.replace('%25','%').replace('%2F','/').replace('%2C',',').replace('%2C',',')
+        const newName = item?.name?.replace('%25','%').replace('%2F','/').replace('%2C',',').replace('%2C',',')
         return newName === parsedProduct
     })
     const productDetails = productNew[0]

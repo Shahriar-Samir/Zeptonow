@@ -2,13 +2,14 @@
 
 
 import { getProduct } from '@/config/products';
+import { ProductType } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 const Product = (props:{params:{productName:string}}) => {
     const {params:{productName}} = props
-    const [product,setProduct] = useState({name:''})
+    const [product,setProduct] = useState<ProductType>({name:''})
     useEffect(()=>{
         getProduct(productName.split('%20').join(' ').replace('%26','&').replace('%2F','/'),setProduct)
     },[])    
@@ -18,34 +19,33 @@ const Product = (props:{params:{productName:string}}) => {
             <section className='flex flex-col md:flex-row gap-14  px-5 '>
                 <article className='w-full md:w-1/2 h-full'>
                 <figure className=' flex h-[80vh] justify-center items-center h-full border rounded-lg'>
-                <Image width={1000} height={1000} alt={product.name.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',',')} className='w-3/4' src={product.img1}/>
+                <Image width={1000} height={1000} alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-3/4' src={product?.img1? product?.img1:''}/>
                 </figure>
                 <section className='mt-10'>
                     <h1 className='font-font4'>About Product</h1>
                     <ul className='list-disc text-gray-500 font-font2 ps-4 flex flex-col gap-2 mt-4'>
-                        {product.description? <li>Description : {product.description}</li> : ''}
-                        <li>Country of Origin : {product.origin}</li>
-                        <li>Shelf Life : {product.life}</li>
-                        {product.ingredients? <li>Ingredients : {product.ingredients}</li> : ''}
-                        {product.FSSAILicense? <li>FSSAI License : {product.FSSAILicense}</li> : ''}
-                        {product.howToUse? <li>How to Use : {product.howToUse}</li> :''}
-                        <li>Manufacturer Name : {product.manufacturer}</li>
-                        {product.manufacturerAddress? <li>Manufacturer Address : {product.manufacturerAddress}</li> :''}
-                        {product.nutritionalInfo? <li>Nutritional Info : {product.nutritionalInfo}</li> :''}
+                        {product?.description? <li>Description : {product?.description}</li> : ''}
+                        <li>Country of Origin : {product?.origin}</li>
+                        <li>Shelf Life : {product?.life}</li>
+                        {product?.ingredients? <li>Ingredients : {product?.ingredients}</li> : ''}
+                        {product?.FSSAILicense? <li>FSSAI License : {product?.FSSAILicense}</li> : ''}
+                        <li>Manufacturer Name : {product?.manufacturer}</li>
+                        {product?.manufacturerAddress? <li>Manufacturer Address : {product?.manufacturerAddress}</li> :''}
+                        {product?.nutritionalInfo? <li>Nutritional Info : {product?.nutritionalInfo}</li> :''}
                     </ul>
                 </section>
                 </article>
                 <article className='w-full md:w-1/2'>
                     <section className='pb-14 border-b-1'>
                     <div className='flex gap-1 bg-[#F6F6F6] inline w-max p-1 rounded font-font3 text-sm'><Image height={15} width={15} alt='clock' src='/icons/clock-primary.svg'/> 9 Mins</div>
-                    <h1 className='font-font4 text-xl mt-3'>{product.name.replace('%25','%').replace('%2F','/').replace('%7C ','| ').replace('%7C ','| ').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',',')}</h1>
-                    <Link href='#' className='text-[#950EDB] font-font3 text-md'>See all {product.model} products</Link>
+                    <h1 className='font-font4 text-xl mt-3'>{product?.name?.replace('%25','%').replace('%2F','/').replace('%7C ','| ').replace('%7C ','| ').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',',')}</h1>
+                    <Link href='#' className='text-[#950EDB] font-font3 text-md'>See all {product?.model} products</Link>
                     <div className='flex flex-col mt-5 gap-5'>
-                    <h1 className='text-gray-600'>{product.unit}</h1>
+                    <h1 className='text-gray-600'>{product?.unit}</h1>
                     <div className='flex gap-3 items-center'>
-                    <h1 className='font-font4 text-2xl'>₹{product.discountedPrice}</h1>
-                    {product.discount? <h1 className='text-gray-600 line-through'>₹{product.price}</h1> : ''}
-                    {product.discount? <div className='text-xs font-font4 text-white py-1 px-2 rounded-md bg-gradient-to-b from-[#7006A0] to-[#A201EC]'>{product.discount}% Off</div> : ''}
+                    <h1 className='font-font4 text-2xl'>₹{product?.discountedPrice}</h1>
+                    {product?.discount? <h1 className='text-gray-600 line-through'>₹{product?.price}</h1> : ''}
+                    {product?.discount? <div className='text-xs font-font4 text-white py-1 px-2 rounded-md bg-gradient-to-b from-[#7006A0] to-[#A201EC]'>{product?.discount}% Off</div> : ''}
                     </div>
                     <button className='bg-[#ef4372] px-10 rounded-md py-3 font-font3 text-white border-none w-max mt-8'>Add</button>
                     </div>
