@@ -18,7 +18,7 @@ const Product = (props:{params:{productName:string}}) => {
             <section className='flex gap-14  px-5 '>
                 <article className='w-1/2 h-full'>
                 <figure className=' flex h-[80vh] justify-center items-center h-full border rounded-lg'>
-                <Image width={1000} height={1000} alt={product.name.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'")} className='w-3/4' src={product.img1}/>
+                <Image width={1000} height={1000} alt={product.name.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',',')} className='w-3/4' src={product.img1}/>
                 </figure>
                 <section className='mt-10'>
                     <h1 className='font-font4'>About Product</h1>
@@ -38,7 +38,7 @@ const Product = (props:{params:{productName:string}}) => {
                 <article className='w-1/2'>
                     <section className='pb-14 border-b-1'>
                     <div className='flex gap-1 bg-[#F6F6F6] inline w-max p-1 rounded font-font3 text-sm'><Image height={15} width={15} alt='clock' src='/icons/clock-primary.svg'/> 9 Mins</div>
-                    <h1 className='font-font4 text-xl mt-3'>{product.name.replace('%25','%').replace('%2F','/').replace('%7C ','| ').replace('%7C ','| ').replace("%E2%80%99", "'")}</h1>
+                    <h1 className='font-font4 text-xl mt-3'>{product.name.replace('%25','%').replace('%2F','/').replace('%7C ','| ').replace('%7C ','| ').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',',')}</h1>
                     <Link href='#' className='text-[#950EDB] font-font3 text-md'>See all {product.model} products</Link>
                     <div className='flex flex-col mt-5 gap-5'>
                     <h1 className='text-gray-600'>{product.unit}</h1>
