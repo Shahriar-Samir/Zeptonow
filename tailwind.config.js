@@ -24,7 +24,7 @@ const styleExports = {
   },
   plugins: [daisyui],
   daisyui:{
-    themes:['light']
+    themes:['light','dark']
   }
 }
 
