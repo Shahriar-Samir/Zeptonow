@@ -6,9 +6,39 @@ import { useEffect, useState } from "react";
 import axios from 'axios'
 
 export const Navbar = () => {
-    const [location, setLocation] = useState('')
+    const [locations, setLocations] = useState([])
+    const [currentLocation, setLocation] = useState('')
     const [theme,setTheme] = useState('light')
     
+
+  const getLocations = (e)=>{
+      const location = e.target.value.length===0? '0' : e.target.value
+
+      try{
+        axios.get(`http://localhost:3000/api/geolocation/${location}`)
+         .then(res=>{
+           setLocations(res.data.suggestions)
+         })
+     }
+     catch(err){
+         console.log(err)
+     }
+  }
+
+
+    // useEffect(()=>{
+    //     try{
+    //        axios.get(`http://localhost:3000/api/geolocation/${}`)
+    //         .then(res=>{
+    //           console.log(res.data)
+    //         })
+    //     }
+    //     catch(err){
+    //         console.log(err)
+    //     }
+      
+    // },[])
+
     
     const [modal, setModal] = useState<HTMLDialogElement | null>(null);
 
@@ -88,7 +118,7 @@ export const Navbar = () => {
               <span className="font-font5 "> 7 Mins</span>
             </h1>
             <button onClick={openModal} className="text-sm font-semibold font-font3 w-max">
-              {location?.slice(0, 44)} {location?.length > 44 ? '...' : ''}
+              {currentLocation?.slice(0, 44)} {currentLocation?.length > 44 ? '...' : ''}
             </button>
 
             {/* Modal */}
@@ -102,6 +132,33 @@ export const Navbar = () => {
                   <h3 className="font-font4 text-center ">Your Location</h3>
                 </div>
                 <div className="border-t"></div>
+                <label  className="input input-bordered flex items-center gap-2 mt-5 !bg-[#f6f3f8]">
+                <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    className="h-4 w-4 opacity-70">
+    <path
+      fillRule="evenodd"
+      d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+      clipRule="evenodd" />
+  </svg>
+  <input onChange={getLocations} type="text" className="grow  text-sm" placeholder="Search a new address" />
+</label>
+
+<section className="h-[40vh] overflow-y-auto">
+         {
+         locations.map(place=>{
+          return <div key={place.latitude+place.longtitude} className="flex py-4 gap-4 border-b cursor-pointer">
+              <Image height={17} width={17} alt={place.formatted} src="/icons/location-maker.svg"/>
+              <div>
+                  <h1 className="text-md font-font4">{place.city? place.city : place.formatted}</h1>
+                  <h2 className="text-sm font-font1 text-[#b0aab3]">{place.formatted}</h2>
+              </div>
+          </div>
+         })
+         }
+</section>
               </div>
             </dialog>
           </div>
