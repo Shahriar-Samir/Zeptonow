@@ -60,7 +60,7 @@ const Sidebar = (props:{ category: string } ) => {
 
     return (
         <>
-        <aside className=' w-[180px] border p-0 h-[100vh] z-10 sticky top-40 md:top-24 bg-white'>
+        <aside className=' w-[180px] border p-0 h-[100vh] z-10 sticky top-40 md:top-24 bg-white dark:bg-[#1d232a] dark:text-white'>
                 <ul>
                     {subcategories.map(item=>{
                         return <li key={item.title}>

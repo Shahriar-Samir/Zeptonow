@@ -1,4 +1,3 @@
-
 import daisyui from 'daisyui'
 
 /** @type {import('tailwindcss').Config} */
@@ -8,6 +7,7 @@ const styleExports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
   ],
+  darkMode: 'class', // Enables dark mode based on the 'dark' class
   theme: {
     extend: {
       fontFamily: {
@@ -23,8 +23,8 @@ const styleExports = {
     },
   },
   plugins: [daisyui],
-  daisyui:{
-    themes:['light','dark']
+  daisyui: {
+    themes: ['light', 'dark'], // Enable both light and dark themes
   }
 }
 

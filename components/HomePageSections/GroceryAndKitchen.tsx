@@ -25,7 +25,7 @@ const GroceryAndKitchen = () => {
 
     return (
         <section>
-        <h1 className="text-xl font-font4 dark:text-white">Grocery & Kitchen</h1>
+        <h1 className="text-xl font-font4 text-black dark:text-white ">Grocery & Kitchen</h1>
         <section className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-5 mt-6">
           {GroceryAndKitchenSubCategories.map((item,index)=>{
                   return  <Link href={item.link} key={index} className="flex flex-col items-center gap-2 bg-white">

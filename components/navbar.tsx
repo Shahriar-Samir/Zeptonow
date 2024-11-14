@@ -4,6 +4,7 @@ import NextLink from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from 'axios'
+import VoiceRecorder from "./VoiceCoverter";
 
 export const Navbar = () => {
     const [locations, setLocations] = useState([])
@@ -25,26 +26,14 @@ export const Navbar = () => {
      }
   }
 
-
-    // useEffect(()=>{
-    //     try{
-    //        axios.get(`http://localhost:3000/api/geolocation/${}`)
-    //         .then(res=>{
-    //           console.log(res.data)
-    //         })
-    //     }
-    //     catch(err){
-    //         console.log(err)
-    //     }
-      
-    // },[])
-
     
     const [modal, setModal] = useState<HTMLDialogElement | null>(null);
 
 
     const changeTheme = ()=>{
       if(theme==='light'){
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
         setTheme('dark')
         document.getElementById('sun')?.classList.remove('swap-off')
         document.getElementById('sun')?.classList.add('swap-on')
@@ -52,6 +41,8 @@ export const Navbar = () => {
         document.getElementById('moon')?.classList.add('swap-off')
       }
       else{
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
         setTheme('light')
         document.getElementById('moon')?.classList.remove('swap-off')
         document.getElementById('moon')?.classList.add('swap-on')
@@ -105,7 +96,7 @@ export const Navbar = () => {
     };
 
     return (
-      <nav className="flex flex-col md:flex-row justify-between md:items-center bg-[#D1ABFF] md:bg-gradient-to-b md:from-[#EEE0FF] md:to-[#FEFDFF] px-2 py-4 pb-8 md:px-16 gap-5 sticky top-0 z-50">
+      <nav className="flex flex-col md:flex-row justify-between md:items-center bg-[#D1ABFF] md:bg-gradient-to-b md:from-[#EEE0FF] md:to-[#FEFDFF] px-2 py-4 pb-8 md:px-16 gap-5 sticky top-0 z-50 dark:bg-[#1d232a] dark:md:bg-gradient-to-b dark:md:from-[#1d232a] dark:md:to-[#1d232a] dark:text-white dark:border-b">
         <div className="flex gap-2 md:gap-5 items-center">
           <div className="gap-3">
             <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -123,7 +114,7 @@ export const Navbar = () => {
 
             {/* Modal */}
             <dialog id="my_modal_1" className="modal">
-              <div className="modal-box bg-white">
+              <div className="modal-box bg-white dark:bg-[#1d232a]">
                 <div className="flex items-center justify-center py-2 ">
                   <form method="dialog">
                     {/* Close button for the modal */}
@@ -143,14 +134,14 @@ export const Navbar = () => {
       d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
       clipRule="evenodd" />
   </svg>
-  <input onChange={getLocations} type="text" className="grow  text-sm" placeholder="Search a new address" />
+  <input onChange={getLocations} type="text" className="grow  text-sm text-black" placeholder="Search a new address" />
 </label>
 
 <section className="h-[40vh] overflow-y-auto">
          {
          locations.map(place=>{
           return <div key={place.latitude+place.longtitude} className="flex py-4 gap-4 border-b cursor-pointer">
-              <Image height={17} width={17} alt={place.formatted} src="/icons/location-maker.svg"/>
+              <Image height={17} width={17} alt={place.formatted} className="" src="/icons/location-maker.svg"/>
               <div>
                   <h1 className="text-md font-font4">{place.city? place.city : place.formatted}</h1>
                   <h2 className="text-sm font-font1 text-[#b0aab3]">{place.formatted}</h2>
@@ -167,13 +158,10 @@ export const Navbar = () => {
         <div className="flex w-full gap-5">
           <div className="flex w-full bg-[#FFFFFF] rounded-lg py-3 px-4 gap-5">
             <Image height={50} width={50} alt="search icon" src="/search-icon.svg" className="h-[20px] w-[20px]" />
-            <p className="font-font1">Search for </p>
+            <p className="font-font1 text-black">Search for </p>
           </div>
           <div className="hidden md:flex gap-5">
-            <button className="flex flex-col items-center">
-              <Image height={24} width={24} alt="user" src="/icons/user.svg"/>
-              <p className="text-xs">Login</p>
-            </button>
+            <VoiceRecorder/>
             <button className="flex flex-col items-center">
               <Image height={24} width={24} alt="cart" src="/icons/cart.svg"/>
               <p className="text-xs">Cart</p>
