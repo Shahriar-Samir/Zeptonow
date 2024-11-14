@@ -6,6 +6,12 @@ import { ProductType } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 
 const Product = (props:{params:{productName:string}}) => {
     const {params:{productName}} = props
@@ -19,7 +25,19 @@ const Product = (props:{params:{productName:string}}) => {
             <section className='flex flex-col md:flex-row gap-14  px-5 '>
                 <article className='w-full md:w-1/2 h-full'>
                 <figure className=' flex h-[80vh] justify-center items-center h-full border rounded-lg'>
-                <Image width={1000} height={1000} alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-3/4' src={product?.img1? product?.img1:''}/>
+          
+                <Swiper navigation={true} modules={[Navigation]} className="mySwiper w-3/4">
+        <SwiperSlide>
+                  <Image width={1000} height={1000} alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-100' src={product?.img1? product?.img1:''}/>
+        </SwiperSlide>
+        <SwiperSlide>
+                  <Image width={1000} height={1000} alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-100' src={product?.img1? product?.img1:''}/>
+        </SwiperSlide>
+        <SwiperSlide>
+                  <Image width={1000} height={1000} alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-100' src={product?.img1? product?.img1:''}/>
+        </SwiperSlide>
+
+      </Swiper>
                 </figure>
                 <section className='mt-10'>
                     <h1 className='font-font4'>About Product</h1>
