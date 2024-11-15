@@ -26,8 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" >
-      <head />
+    <html suppressHydrationWarning lang="en" data-theme='light'>
+      <head>
+      <style>{`
+          html{
+            visibility: hidden;
+          }
+        `}</style>
+      </head>
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased ",

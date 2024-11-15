@@ -12,7 +12,7 @@ import { setToCart } from "@/lib/features/cart/cart";
 export const Navbar = () => {
   const [locations, setLocations] = useState<string[]>([]);
   const [currentLocation, setLocation] = useState('');
-  const [theme, setTheme] = useState<string>(() => localStorage.getItem('themeColor') || 'light');
+  const [theme, setTheme] = useState<string>('');
   const [modal, setModal] = useState<HTMLDialogElement | null>(null);
   const dispatch = useDispatch()
   const cartSize = useSelector((state:{cart:{total:number}})=> state.cart.total)
@@ -50,26 +50,37 @@ export const Navbar = () => {
 
   // Initialize theme on component mount
   useEffect(() => {
-    const themeColor = localStorage.getItem('themeColor') || 'light';
-    document.documentElement.classList.add(themeColor);
-    document.querySelector('html')?.setAttribute('data-theme',themeColor)
-    setTheme(themeColor);
-
-    // Sync icons with the theme
-    if (themeColor === 'light') {
-      document.getElementById('moon')?.classList.add('swap-on');
-      document.getElementById('sun')?.classList.add('swap-off');
-    } else {
-      document.getElementById('sun')?.classList.add('swap-on');
-      document.getElementById('moon')?.classList.add('swap-off');
+    if (typeof window !== 'undefined') {
+   
+      const themeColor = localStorage.getItem('themeColor') || 'light';
+      document.documentElement.classList.add(themeColor);
+      document.querySelector('html')?.setAttribute('data-theme', themeColor);
+      const htmlElement = document.getElementsByTagName('html').item(0);
+      if (htmlElement) {
+        htmlElement.style.visibility = 'visible'; // Set the visibility of the html tag
+      }
+  
+  
+      setTheme(themeColor);
+  
+      // Sync icons with the theme
+      const moonIcon = document.getElementById('moon');
+      const sunIcon = document.getElementById('sun');
+  
+      if (moonIcon && sunIcon) {
+        if (themeColor === 'light') {
+          moonIcon.classList.add('swap-on');
+          sunIcon.classList.add('swap-off');
+        } else {
+          sunIcon.classList.add('swap-on');
+          moonIcon.classList.add('swap-off');
+        }
+      }
     }
-  }, []);
-
-
-  useEffect(()=>{
     const cartLocal = localStorage.getItem('cart')
     dispatch(setToCart(cartLocal))
-  })
+  }, []);
+
 
   // Handle geolocation and modal initialization
   useEffect(() => {
