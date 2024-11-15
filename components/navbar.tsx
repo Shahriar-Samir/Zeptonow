@@ -32,7 +32,7 @@ export const Navbar = () => {
     }
   };
 
-  // Toggle between light and dark theme
+
   const changeTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
@@ -41,14 +41,14 @@ export const Navbar = () => {
     setTheme(newTheme);
     localStorage.setItem('themeColor', newTheme);
 
-    // Update icons based on theme
+
     document.getElementById('sun')?.classList.toggle('swap-on', newTheme === 'dark');
     document.getElementById('sun')?.classList.toggle('swap-off', newTheme === 'light');
     document.getElementById('moon')?.classList.toggle('swap-on', newTheme === 'light');
     document.getElementById('moon')?.classList.toggle('swap-off', newTheme === 'dark');
   };
 
-  // Initialize theme on component mount
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
    
@@ -57,13 +57,12 @@ export const Navbar = () => {
       document.querySelector('html')?.setAttribute('data-theme', themeColor);
       const htmlElement = document.getElementsByTagName('html').item(0);
       if (htmlElement) {
-        htmlElement.style.visibility = 'visible'; // Set the visibility of the html tag
+        htmlElement.style.visibility = 'visible'; 
       }
   
   
       setTheme(themeColor);
-  
-      // Sync icons with the theme
+
       const moonIcon = document.getElementById('moon');
       const sunIcon = document.getElementById('sun');
   
@@ -82,7 +81,7 @@ export const Navbar = () => {
   }, []);
 
 
-  // Handle geolocation and modal initialization
+
   useEffect(() => {
     const modalElement = document.getElementById('my_modal_1') as HTMLDialogElement;
     setModal(modalElement);
@@ -109,7 +108,7 @@ export const Navbar = () => {
     }
   }, []);
 
-  // Open modal
+
   const openModal = () => {
     modal?.showModal();
   };
