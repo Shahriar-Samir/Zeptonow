@@ -23,9 +23,7 @@ const styleExports = {
     },
   },
   plugins: [daisyui],
-  daisyui: {
-    themes: ['light', 'dark'], // Enable both light and dark themes
-  }
+
 }
 
 export default styleExports;

@@ -5,95 +5,103 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import VoiceRecorder from "./VoiceCoverter";
+import { useDispatch, useSelector } from "react-redux";
+import { setToCart } from "@/lib/features/cart/cart";
 
 export const Navbar = () => {
-    const [locations, setLocations] = useState([])
-    const [currentLocation, setLocation] = useState('')
-    const [theme,setTheme] = useState('light')
-    
+  const [locations, setLocations] = useState<string[]>([]);
+  const [currentLocation, setLocation] = useState('');
+  const [theme, setTheme] = useState<string>(() => localStorage.getItem('themeColor') || 'light');
+  const [modal, setModal] = useState<HTMLDialogElement | null>(null);
+  const dispatch = useDispatch()
+  const cartSize = useSelector((state)=> state.cart.total)
+  const cartItems = useSelector((state)=> state.cart.list)
 
-  const getLocations = (e)=>{
-      const location = e.target.value.length===0? '0' : e.target.value
+  console.log(cartItems)
 
-      try{
-        axios.get(`http://localhost:3000/api/geolocation/${location}`)
-         .then(res=>{
-           setLocations(res.data.suggestions)
-         })
-     }
-     catch(err){
-         console.log(err)
-     }
-  }
+  // Fetch locations based on user input
+  const getLocations = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const location = e.target.value.length === 0 ? '0' : e.target.value;
 
-    
-    const [modal, setModal] = useState<HTMLDialogElement | null>(null);
-
-
-    const changeTheme = ()=>{
-      if(theme==='light'){
-        document.documentElement.classList.add('dark');
-        document.documentElement.classList.remove('light');
-        setTheme('dark')
-        document.getElementById('sun')?.classList.remove('swap-off')
-        document.getElementById('sun')?.classList.add('swap-on')
-        document.getElementById('moon')?.classList.remove('swap-on')
-        document.getElementById('moon')?.classList.add('swap-off')
-      }
-      else{
-        document.documentElement.classList.remove('dark');
-        document.documentElement.classList.add('light');
-        setTheme('light')
-        document.getElementById('moon')?.classList.remove('swap-off')
-        document.getElementById('moon')?.classList.add('swap-on')
-        document.getElementById('sun')?.classList.remove('swap-on')
-        document.getElementById('sun')?.classList.add('swap-off')
-      }
+    try {
+      const response = await axios.get(`http://localhost:3000/api/geolocation/${location}`);
+      setLocations(response.data.suggestions);
+    } catch (err) {
+      console.error('Error fetching location suggestions:', err);
     }
+  };
 
-    useEffect(()=>{
-      if(theme==='light'){
-        document.getElementById('moon')?.classList.remove('swap-off')
-        document.getElementById('moon')?.classList.add('swap-on')
-        document.getElementById('sun')?.classList.remove('swap-on')
-        document.getElementById('sun')?.classList.add('swap-off')
-      }
-      else{
-        document.getElementById('sun')?.classList.remove('swap-off')
-        document.getElementById('sun')?.classList.add('swap-on')
-        document.getElementById('moon')?.classList.remove('swap-on')
-        document.getElementById('moon')?.classList.add('swap-off')
-      }
-      document.querySelector('html')?.setAttribute("data-theme",theme)
-    },[theme])
+  // Toggle between light and dark theme
+  const changeTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    document.documentElement.classList.toggle('light', newTheme === 'light');
+    document.querySelector('html')?.setAttribute('data-theme',newTheme)
+    setTheme(newTheme);
+    localStorage.setItem('themeColor', newTheme);
+
+    // Update icons based on theme
+    document.getElementById('sun')?.classList.toggle('swap-on', newTheme === 'dark');
+    document.getElementById('sun')?.classList.toggle('swap-off', newTheme === 'light');
+    document.getElementById('moon')?.classList.toggle('swap-on', newTheme === 'light');
+    document.getElementById('moon')?.classList.toggle('swap-off', newTheme === 'dark');
+  };
+
+  // Initialize theme on component mount
+  useEffect(() => {
+    const themeColor = localStorage.getItem('themeColor') || 'light';
+    document.documentElement.classList.add(themeColor);
+    document.querySelector('html')?.setAttribute('data-theme',themeColor)
+    setTheme(themeColor);
+
+    // Sync icons with the theme
+    if (themeColor === 'light') {
+      document.getElementById('moon')?.classList.add('swap-on');
+      document.getElementById('sun')?.classList.add('swap-off');
+    } else {
+      document.getElementById('sun')?.classList.add('swap-on');
+      document.getElementById('moon')?.classList.add('swap-off');
+    }
+  }, []);
 
 
-    useEffect(() => {
+  useEffect(()=>{
+    const cartLocal = localStorage.getItem('cart')
+    dispatch(setToCart(cartLocal))
+  })
 
-      const modalElement = document.getElementById('my_modal_1') as HTMLDialogElement;
-      setModal(modalElement);
+  // Handle geolocation and modal initialization
+  useEffect(() => {
+    const modalElement = document.getElementById('my_modal_1') as HTMLDialogElement;
+    setModal(modalElement);
 
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            axios.get(`https://api.opencagedata.com/geocode/v1/json?key=c87ff59feccf4d21a22f30952ae0d625&q=${position.coords.latitude}+${position.coords.longitude}`)
-              .then(res => {
-                const currentLocation = res.data.results[0].components;
-                setLocation(`${currentLocation.county}, ${currentLocation.state}`);
-              })
-          },
-          (error) => {
-            console.log(error)
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          try {
+            const response = await axios.get(
+              `https://api.opencagedata.com/geocode/v1/json?key=c87ff59feccf4d21a22f30952ae0d625&q=${position.coords.latitude}+${position.coords.longitude}`
+            );
+            const components = response.data.results[0]?.components || {};
+            setLocation(`${components.county || ''}, ${components.state || ''}`);
+          } catch (err) {
+            console.error('Error fetching geolocation data:', err);
           }
-        );
-      } else {
-        console.log("Geolocation is not supported by this browser.");
-      }
-    }, []);
+        },
+        (error) => {
+          console.error('Geolocation error:', error);
+        }
+      );
+    } else {
+      console.warn('Geolocation is not supported by this browser.');
+    }
+  }, []);
 
-    const openModal = () => {
-      modal?.showModal();  
-    };
+  // Open modal
+  const openModal = () => {
+    modal?.showModal();
+  };
+
 
     return (
       <nav className="flex flex-col md:flex-row justify-between md:items-center bg-[#D1ABFF] md:bg-gradient-to-b md:from-[#EEE0FF] md:to-[#FEFDFF] px-2 py-4 pb-8 md:px-16 gap-5 sticky top-0 z-50 dark:bg-[#1d232a] dark:md:bg-gradient-to-b dark:md:from-[#1d232a] dark:md:to-[#1d232a] dark:text-white dark:border-b">
@@ -162,9 +170,10 @@ export const Navbar = () => {
           </div>
           <div className="hidden md:flex gap-5">
             <VoiceRecorder/>
-            <button className="flex flex-col items-center">
+            <button className="flex flex-col items-center relative">
               <Image height={24} width={24} alt="cart" src="/icons/cart.svg"/>
               <p className="text-xs">Cart</p>
+              <div className="rounded-full p-1 bg-red-400 text-white absolute top-[-10px] right-[-10px]  text-xs">{cartSize}</div>
             </button>
           </div>
         </div>

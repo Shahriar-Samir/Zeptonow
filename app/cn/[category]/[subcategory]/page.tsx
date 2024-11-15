@@ -3,17 +3,28 @@
 
 import Sidebar from "@/components/sidebar";
 import { updateProducts } from "@/config/products";
+import { addToCart } from "@/lib/features/cart/cart";
 import { ProductsType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 
 
 
 const Subcategory = (props: { params: { subcategory: string, category:string } }) => {
   const [products,setProducts] = useState<ProductsType[]>([])
+  const dispatch = useDispatch()
 
+  const addToCartHandler = (item:object)=>{
+      dispatch(addToCart({
+        ...item, quantity:1
+      }))
+
+      toast.success('Successfully added to cart')
+  }
 
   const {
     params: { subcategory, category },
@@ -74,8 +85,8 @@ const Subcategory = (props: { params: { subcategory: string, category:string } }
                   </span>
                 </p>
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
-<button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>open modal</button>
-<dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+<button className="btn" onClick={()=>document.getElementById('showUnits').showModal()}>open modal</button>
+<dialog id="showUnits" className="modal modal-bottom sm:modal-middle">
   <div className="modal-box w-full !max-w-[400px]">
   <form method="dialog">
       {/* if there is a button in form, it will close the modal */}
@@ -91,7 +102,7 @@ const Subcategory = (props: { params: { subcategory: string, category:string } }
     </div>
   </div>
 </dialog>
-                <button className="w-full py-2 text-[#EF4372] text-sm font-font4 border rounded border-[#EF4372]">
+                <button onClick={()=> addToCartHandler(item)} className="w-full py-2 text-[#EF4372] text-sm font-font4 border rounded border-[#EF4372]">
                   Add to Cart
                 </button>
               </div>
