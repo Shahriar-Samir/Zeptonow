@@ -7,6 +7,7 @@ import axios from 'axios'
 import VoiceRecorder from "./VoiceCoverter";
 import { useDispatch, useSelector } from "react-redux";
 import { setToCart } from "@/lib/features/cart/cart";
+import { toast } from "react-toastify";
 
 
 export const Navbar = () => {
@@ -19,6 +20,7 @@ export const Navbar = () => {
 
   const setCurrentLocation = (location:string)=>{
       setLocation(location)    
+      toast.success('New Location setted')
   }
 
 
@@ -27,7 +29,7 @@ export const Navbar = () => {
     const location = e.target.value.length === 0 ? '0' : e.target.value;
 
     try {
-      const response = await axios.get(`https://zeptonow-three.vercel.app/api/geolocation/${location}`);
+      const response = await axios.get(`http://localhost:3000/api/geolocation/${location}`);
       setLocations(response.data.suggestions);
     } catch (err) {
       console.error('Error fetching location suggestions:', err);
@@ -163,7 +165,7 @@ export const Navbar = () => {
          locations.map((place:any)=>{
           return <div key={place.latitude+place.longtitude} className="flex py-4 gap-4 border-b cursor-pointer">
               <Image height={17} width={17} alt={place.formatted} className="" src="/icons/location-maker.svg"/>
-              <button onClick={()=>setCurrentLocation(place.formatted)}>
+              <button  className="flex flex-col" onClick={()=>setCurrentLocation(place.formatted)}>
                   <h1 className="text-md font-font4">{place.city? place.city : place.formatted}</h1>
                   <h2 className="text-sm font-font1 text-[#b0aab3]">{place.formatted}</h2>
               </button>
