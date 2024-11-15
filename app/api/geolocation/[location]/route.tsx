@@ -1,7 +1,8 @@
+import { SuggestionsType } from "@/types";
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-export const GET = async (req, { params }) => {
+export const GET = async (req:Request, { params }:{params:{location:string}}) => {
    const { location } = params;
    const apiKey = process.env.API_KEY;
    console.log(location)
@@ -16,7 +17,7 @@ export const GET = async (req, { params }) => {
       );
 
 
-      const suggestions = response.data.results.map((result) => ({
+      const suggestions = response.data.results.map((result:SuggestionsType) => ({
          city: result.components._normalized_city,
          formatted: result.formatted, 
          latitude: result.geometry.lat, 

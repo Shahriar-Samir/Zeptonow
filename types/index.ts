@@ -44,4 +44,43 @@ export type ProductType = {
   manufacturerAddress?:string | null,
   ingredients?:string | null ,
   nutritionalInfo?:string | null,
+  
 }
+
+
+export type SuggestionsType = {
+  components:{_normalized_city:string},
+  formatted:string,
+  geometry:{lat:string,lng:string}
+}
+
+
+
+export interface CartItem {
+  name:string | null,
+  unit?: string | null,
+  price?: number,
+  discountedPrice?: number, 
+  discount?: number,
+  model?: string | null,
+  subcategory?: string | null,
+  category?: string | null,
+  img1?: string | null,
+  description?: string | null,
+  origin?: string | null,
+  life?: string | null,
+  manufacturer?: string | null,
+  FSSAILicense?:string | null | number,
+  manufacturerAddress?:string | null,
+  ingredients?:string | null ,
+  nutritionalInfo?:string | null,
+  quantity: number;
+}
+
+export interface CartState {
+  list: CartItem[];
+  total: number;
+}
+
+
+

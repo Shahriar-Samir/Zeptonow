@@ -7,7 +7,7 @@ import axios from 'axios'
 import VoiceRecorder from "./VoiceCoverter";
 import { useDispatch, useSelector } from "react-redux";
 import { setToCart } from "@/lib/features/cart/cart";
-import { FaMicrophone } from "react-icons/fa";  
+
 
 export const Navbar = () => {
   const [locations, setLocations] = useState<string[]>([]);
@@ -15,8 +15,8 @@ export const Navbar = () => {
   const [theme, setTheme] = useState<string>(() => localStorage.getItem('themeColor') || 'light');
   const [modal, setModal] = useState<HTMLDialogElement | null>(null);
   const dispatch = useDispatch()
-  const cartSize = useSelector((state)=> state.cart.total)
-  const cartItems = useSelector((state)=> state.cart.list)
+  const cartSize = useSelector((state:{cart:{total:number}})=> state.cart.total)
+
 
 
 
@@ -132,7 +132,7 @@ export const Navbar = () => {
                   <h3 className="font-font4 text-center ">Your Location</h3>
                 </div>
                 <div className="border-t"></div>
-                <label  className="input input-bordered flex items-center gap-2 mt-5 !bg-[#f6f3f8]">
+                <div  className="input input-bordered flex items-center gap-2 mt-5 !bg-[#f6f3f8]">
                 <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -144,11 +144,11 @@ export const Navbar = () => {
       clipRule="evenodd" />
   </svg>
   <input onChange={getLocations} type="text" className="grow  text-sm text-black" placeholder="Search a new address" />
-</label>
+</div>
 
 <section className="h-[40vh] overflow-y-auto">
          {
-         locations.map(place=>{
+         locations.map((place:any)=>{
           return <div key={place.latitude+place.longtitude} className="flex py-4 gap-4 border-b cursor-pointer">
               <Image height={17} width={17} alt={place.formatted} className="" src="/icons/location-maker.svg"/>
               <div>

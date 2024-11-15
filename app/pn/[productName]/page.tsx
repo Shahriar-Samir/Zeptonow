@@ -25,7 +25,7 @@ const Product = (props:{params:{productName:string}}) => {
     
     const goBack = ()=> router.back()
 
-    const addToCartHandler = (item:object)=>{
+    const addToCartHandler = (item:any)=>{
         dispatch(addToCart({
           ...item, quantity:1
         }))
