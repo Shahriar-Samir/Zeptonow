@@ -17,7 +17,9 @@ export const Navbar = () => {
   const dispatch = useDispatch()
   const cartSize = useSelector((state:{cart:{total:number}})=> state.cart.total)
 
-
+  const setCurrentLocation = (location:string)=>{
+      setLocation(location)    
+  }
 
 
   // Fetch locations based on user input
@@ -161,10 +163,10 @@ export const Navbar = () => {
          locations.map((place:any)=>{
           return <div key={place.latitude+place.longtitude} className="flex py-4 gap-4 border-b cursor-pointer">
               <Image height={17} width={17} alt={place.formatted} className="" src="/icons/location-maker.svg"/>
-              <div>
+              <button onClick={()=>setCurrentLocation(place.formatted)}>
                   <h1 className="text-md font-font4">{place.city? place.city : place.formatted}</h1>
                   <h2 className="text-sm font-font1 text-[#b0aab3]">{place.formatted}</h2>
-              </div>
+              </button>
           </div>
          })
          }
