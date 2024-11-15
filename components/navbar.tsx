@@ -29,7 +29,7 @@ export const Navbar = () => {
     const location = e.target.value.length === 0 ? '0' : e.target.value;
 
     try {
-      const response = await axios.get(`http://localhost:3000/api/geolocation/${location}`);
+      const response = await axios.get(`https://zeptonow-three.vercel.app/api/geolocation/${location}`);
       setLocations(response.data.suggestions);
     } catch (err) {
       console.error('Error fetching location suggestions:', err);
