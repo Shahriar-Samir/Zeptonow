@@ -8,21 +8,40 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-
+import { IoArrowBackSharp } from "react-icons/io5";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '@/lib/features/cart/cart';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const Product = (props:{params:{productName:string}}) => {
     const {params:{productName}} = props
     const [product,setProduct] = useState<ProductType>({name:''})
+    const dispatch = useDispatch()
+    const router = useRouter()
+    
+    const goBack = ()=> router.back()
+
+    const addToCartHandler = (item:object)=>{
+        dispatch(addToCart({
+          ...item, quantity:1
+        }))
+  
+        toast.success('Successfully added to cart')
+    }
+
+
     useEffect(()=>{
         getProduct(productName.split('%20').join(' ').replace('%26','&').replace('%2F','/'),setProduct)
     },[])    
 
     return (
         <main className='mt-5 '>
-            <section className='flex flex-col md:flex-row gap-14  px-5 '>
+                <button onClick={goBack} className='flex gap-2 items-center btn ms-5 bg-[#f1e6ff] dark:hover:bg-[#f1e6ff] hover:bg-[#950EDB] dark:bg-[#950EDB] hover:text-white dark:hover:text-black  dark:text-white'><IoArrowBackSharp /> Back</button>
+            <section className='flex flex-col md:flex-row gap-14  px-5 mt-10'>
                 <article className='w-full md:w-1/2 h-full'>
                 <figure className=' flex h-[80vh] justify-center items-center h-full border rounded-lg'>
           
@@ -65,7 +84,7 @@ const Product = (props:{params:{productName:string}}) => {
                     {product?.discount? <h1 className='text-gray-600 line-through'>₹{product?.price}</h1> : ''}
                     {product?.discount? <div className='text-xs font-font4 text-white py-1 px-2 rounded-md bg-gradient-to-b from-[#7006A0] to-[#A201EC]'>{product?.discount}% Off</div> : ''}
                     </div>
-                    <button className='bg-[#ef4372] px-10 rounded-md py-3 font-font3 text-white border-none w-max mt-8'>Add</button>
+                    <button onClick={()=>addToCartHandler(product)} className='bg-[#ef4372] px-10 rounded-md py-3 font-font3 text-white border-none w-max mt-8'>Add</button>
                     </div>
                     </section>
                     <section className='mt-5 flex flex-col gap-5 dark:text-white'>

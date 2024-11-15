@@ -7,16 +7,21 @@ import { addToCart } from "@/lib/features/cart/cart";
 import { ProductsType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-
+import { IoArrowBackSharp } from "react-icons/io5";
 
 
 
 const Subcategory = (props: { params: { subcategory: string, category:string } }) => {
   const [products,setProducts] = useState<ProductsType[]>([])
   const dispatch = useDispatch()
+  const router = useRouter()
+    
+
+  const goBack = ()=> router.back()
 
   const addToCartHandler = (item:object)=>{
       dispatch(addToCart({
@@ -38,6 +43,7 @@ const Subcategory = (props: { params: { subcategory: string, category:string } }
     <main className="flex gap-5">
       <Sidebar category={category}/>
       <section className="px-3 w-10/12">
+      <button onClick={goBack} className='flex gap-2 items-center btn bg-[#f1e6ff] dark:hover:bg-[#f1e6ff] hover:bg-[#950EDB] dark:bg-[#950EDB] hover:text-white dark:hover:text-black  dark:text-white'><IoArrowBackSharp /> Back</button>
       <h1 className="px-5 py-5 text-2xl font-font4 capitalize">{subcategory}</h1>
       <section className="mt-3 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-10 md:gap-3">
         {products.map((item) => {
@@ -84,27 +90,13 @@ const Subcategory = (props: { params: { subcategory: string, category:string } }
                     ₹{item?.price}
                   </span>
                 </p>
-                {/* Open the modal using document.getElementById('ID').showModal() method */}
-<button className="btn" onClick={()=>document.getElementById('showUnits').showModal()}>open modal</button>
-<dialog id="showUnits" className="modal modal-bottom sm:modal-middle">
-  <div className="modal-box w-full !max-w-[400px]">
-  <form method="dialog">
-      {/* if there is a button in form, it will close the modal */}
-      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-    </form>
-    <h2 className="font-semibold text-md">Choose quantity</h2>
-    <h4 className="font-bold text-sm">{item.name}</h4>
-    <div className="flex gap-5 items-center w-full justify-center mt-4">
-          <Image src={item.img1} width={400} className="w-5/12" height={400} alt={item.name}/>
-          <Image src={item.img1} width={400} className="w-5/12" height={400} alt={item.name}/>
-    </div>
-    <div className="modal-action">
-    </div>
-  </div>
-</dialog>
-                <button onClick={()=> addToCartHandler(item)} className="w-full py-2 text-[#EF4372] text-sm font-font4 border rounded border-[#EF4372]">
+               <ShowUnitsModal item={item}/>
+                <div className="flex items-center gap-1">
+                <button className="w-1/2 text-[#EF4372] text-xs font-font4 border rounded border-[#EF4372] py-2" onClick={()=>document.getElementById('showUnits'+item.name).showModal()}>Options</button>
+                <button onClick={()=> addToCartHandler(item)} className="w-1/2 text-[#EF4372] text-xs font-font4 border rounded border-[#EF4372] py-2">
                   Add to Cart
                 </button>
+                </div>
               </div>
             </article>
           );
@@ -116,3 +108,72 @@ const Subcategory = (props: { params: { subcategory: string, category:string } }
 };
 
 export default Subcategory;
+
+
+
+
+const ShowUnitsModal = ({item})=>{
+  
+  const newItem1 = {
+    ...item,
+    discountedPrice:item.discountedPrice*2,
+    name: `2X ${item.name}`,
+    unit: `2X ${item.unit}`
+  }
+  const newItem2 = {
+    ...item,
+    discountedPrice:item.discountedPrice*2,
+    name: `4X ${item.name}`,
+    unit: `4X ${item.unit}`
+  }
+
+
+  const dispatch = useDispatch()
+  const addToCartHandler = (item:object)=>{
+    dispatch(addToCart({
+      ...item, quantity:1
+    }))
+
+    toast.success('Successfully added to cart')
+}
+ 
+ 
+ 
+ 
+  return (
+    <dialog id={'showUnits'+item.name} className="modal modal-middle sm:modal-middle">
+  <div className="modal-box w-full w-11/12 !max-w-[400px]">
+  <form method="dialog">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 dark:text-white">✕</button>
+    </form>
+    <h2 className="font-semibold text-md dark:text-white">Choose quantity</h2>
+    <h4 className="font-bold text-xs text-gray-400 mt-2">{item.name}</h4>
+    <div className="flex gap-5 items-center w-full justify-center mt-4">
+        <article className="w-5/12 flex flex-col justify-between h-full">
+        <div className="w-full flex flex-col">
+        <Image src={newItem1.img1} width={400} className="w-full" height={400} alt={newItem1.name}/>
+        <p className="font-font1 text-sm mt-2 dark:text-white"> 2 X {item.unit}</p>
+        <p className="font-font2 text-sm mt-1 dark:text-white">₹{newItem1.discountedPrice}</p>
+        </div>
+        <button onClick={()=> addToCartHandler(newItem1)} className="w-full text-[#EF4372] text-xs font-font4 border rounded border-[#EF4372] py-2 mt-3">
+                  Add to Cart
+        </button>
+        </article>
+        <article className="w-5/12 flex flex-col justify-between h-full">
+        <div className="w-full flex flex-col">
+        <Image src={newItem2.img1} width={400} className="w-full" height={400} alt={newItem2.name}/>
+        <p className="font-font1 text-sm mt-2 dark:text-white"> 4 X {item.unit}</p>
+        <p className="font-font2 text-sm mt-1 dark:text-white">₹{newItem2.discountedPrice}</p>
+        </div>
+        <button onClick={()=> addToCartHandler(newItem2)} className="w-full text-[#EF4372] text-xs font-font4 border rounded border-[#EF4372] py-2 mt-3">
+                  Add to Cart
+        </button>
+        </article>
+    </div>
+    <div className="modal-action">
+    </div>
+  </div>
+</dialog>
+  )
+}

@@ -6,7 +6,7 @@ const VoiceConverter = () => {
 
   const [isRecording,setIsRecording] = useState<boolean>(false)
   const [recordingComplete,setRecordingComplete] = useState<boolean>(false)
-  const [transcript,setTranscript] = useState<string>("")
+  const [transcript,setTranscript] = useState<string>("Say something")
 
   const recognitionRef = useRef<any>(null)
 
@@ -58,20 +58,16 @@ useEffect(()=>{
           <button 
           onClick={()=>document.getElementById('my_modal_5').showModal()}
            className="flex flex-col items-center">
-              <Image 
-              height={24} 
-              width={24} 
-              alt="user" 
-              src="/icons/user.svg"/>
+              <FaMicrophone className='text-2xl' />
 
-              <p className="text-xs">Login</p>
+              <p className="text-xs">Voice</p>
 
           </button>{/* Open the modal using document.getElementById('ID').showModal() method */}
             
             
           <dialog 
           id="my_modal_5" 
-          className="modal modal-bottom sm:modal-middle">
+          className="modal modal-middle">
 
             <div className="modal-box !w-11/12 !max-w-[300px] flex justify-center items-center flex-col">
 
@@ -81,10 +77,13 @@ useEffect(()=>{
                   <div className='rounded-full w-4 h-4 bg-red-400 animate-pulse'/>
                   <div className='rounded-full w-4 h-4 bg-red-400 animate-pulse'/>
                   <div className='rounded-full w-4 h-4 bg-red-400 animate-pulse'/>
-              </div> : ''}
-              <p className="py-4 mt-2">{transcript || 'Say something'}</p>
+              </div> : <h1 className='mt-2'>Mic is turned off</h1>}
+              <p className=" mt-2">{isRecording? transcript : ''}</p>
 
-
+              <form method="dialog">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
             </div>
           </dialog>
         </>
