@@ -14,7 +14,7 @@ import { HiOutlineUserCircle } from "react-icons/hi2";
 
 export const Navbar = () => {
   const [locations, setLocations] = useState<string[]>([]);
-  const [currentLocation, setLocation] = useState('');
+  const [currentLocation, setLocation] = useState('Turn on you location');
   const [theme, setTheme] = useState<string>('');
   const [modal, setModal] = useState<HTMLDialogElement | null>(null);
   const dispatch = useDispatch()
