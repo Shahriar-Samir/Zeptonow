@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { ProductType } from "../../../../types";
 
+
 const Subcategory = (props: { params: { subcategory: string; category: string } }) => {
   const [products, setProducts] = useState<ProductsType[]>([]);
   const dispatch = useDispatch();
@@ -45,11 +46,11 @@ const Subcategory = (props: { params: { subcategory: string; category: string } 
       <section className="px-3 w-10/12">
         <button
           onClick={goBack}
-          className="flex gap-2 items-center btn bg-[#f1e6ff] dark:hover:bg-[#f1e6ff] hover:bg-[#950EDB] dark:bg-[#950EDB] hover:text-white dark:hover:text-black dark:text-white"
+          className="mt-4 flex gap-2 items-center btn bg-[#f1e6ff] dark:hover:bg-[#f1e6ff] hover:bg-[#950EDB] dark:bg-[#950EDB] hover:text-white dark:hover:text-black dark:text-white"
         >
           <IoArrowBackSharp /> Back
         </button>
-        <h1 className="px-5 py-5 text-2xl font-font4 capitalize">{subcategory}</h1>
+        <h1 className="px-5 py-5 text-2xl font-font4 capitalize dark:text-white">{subcategory}</h1>
         <section className="mt-3 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-10 md:gap-3">
           {products.map((item) => {
             return (

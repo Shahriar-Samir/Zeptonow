@@ -8,6 +8,8 @@ import VoiceRecorder from "./VoiceCoverter";
 import { useDispatch, useSelector } from "react-redux";
 import { setToCart } from "@/lib/features/cart/cart";
 import { toast } from "react-toastify";
+import { IoCartOutline } from "react-icons/io5";
+import { HiOutlineUserCircle } from "react-icons/hi2";
 
 
 export const Navbar = () => {
@@ -186,15 +188,11 @@ export const Navbar = () => {
           <div className="flex justify-center gap-5">
             <VoiceRecorder/>
             <button className="flex flex-col items-center relative">
-            <Image 
-              height={24} 
-              width={24} 
-              alt="user" 
-              src="/icons/user.svg"/> 
+            <HiOutlineUserCircle className="text-2xl"/>
               <p className="text-xs">Login</p>
             </button>
             <button className="flex flex-col items-center relative">
-              <Image height={24} width={24} alt="cart" src="/icons/cart.svg"/>
+            <IoCartOutline className="text-2xl"/>
               <p className="text-xs">Cart</p>
               <div className="rounded-full p-1 bg-red-400 text-white absolute top-[-10px] right-[-10px]  text-xs">{cartSize}</div>
             </button>
