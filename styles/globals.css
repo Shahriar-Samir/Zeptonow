@@ -2,35 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
-    font-family: 'font1';
-    src: url('/fonts/font1.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "font1";
+  src: url("/fonts/font1.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'font2';
-    src: url('/fonts/font2.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "font2";
+  src: url("/fonts/font2.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'font3';
-    src: url('/fonts/font3.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "font3";
+  src: url("/fonts/font3.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'font4';
-    src: url('/fonts/font4.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "font4";
+  src: url("/fonts/font4.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'font5';
-    src: url('/fonts/font5.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "font5";
+  src: url("/fonts/font5.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
-
