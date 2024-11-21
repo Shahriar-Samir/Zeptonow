@@ -5,19 +5,18 @@ import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
 import clsx from "clsx";
 import ReduxProvider from "@/lib/Provider";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import Session from "@/providers/Session";
 
 export const metadata: Metadata = {
-  title: 'Welcome to Zepto',
+  title: "Welcome to Zepto",
   icons: {
-    icon: '/icon.ico',
+    icon: "/icon.ico",
   },
 };
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-  ],
+  themeColor: [{ media: "(prefers-color-scheme: light)", color: "white" }],
 };
 
 export default function RootLayout({
@@ -26,32 +25,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" data-theme='light'>
-      <head>
-      <style>{`
+    <Session>
+      <html suppressHydrationWarning lang="en" data-theme="light">
+        <head>
+          <style>{`
           html{
             visibility: hidden;
           }
         `}</style>
-      </head>
-      <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased ",
-          fontSans.variable,
-        )}
-      >
-         <ReduxProvider>
-         <div className="relative flex flex-col !text-black">
-          <ToastContainer/>
-            <Navbar />
-            <main className="">
-              {children}
-            </main>
-            <Footer/>
-          </div>
-         </ReduxProvider>
-
-      </body>
-    </html>
+        </head>
+        <body
+          className={clsx(
+            "min-h-screen bg-background font-sans antialiased ",
+            fontSans.variable
+          )}
+        >
+          <ReduxProvider>
+            <div className="relative flex flex-col !text-black">
+              <ToastContainer />
+              <Navbar />
+              <main className="">{children}</main>
+              <Footer />
+            </div>
+          </ReduxProvider>
+        </body>
+      </html>
+    </Session>
   );
 }
