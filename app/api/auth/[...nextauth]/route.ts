@@ -6,7 +6,7 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "Username" },
+        email: { label: "Email", type: "email", placeholder: "Email" }, // Use email field
         password: {
           label: "Password",
           type: "password",
@@ -14,36 +14,42 @@ const handler = NextAuth({
         },
       },
       async authorize(credentials) {
-        // Replace this with your custom logic for authenticating a user
-        const { username, password } = credentials || {};
+        const { email, password } = credentials || {};
 
-        // Example: Validate user against your database
-        if (username === "admin" && password === "password123") {
-          return { id: "1", name: "Admin User", email: "admin@example.com" }; // Example user object
+        // Example: Validate user against your predefined users
+        // Replace this with your custom logic (e.g., check against a database)
+        if (email === "shabusiness035@gmail.com" && password === "123") {
+          return {
+            id: "1",
+            name: "Admin User",
+            email: "shabusiness035@gmail.com", // Use email here
+          }; // Return user object with email
         }
 
         // If login fails
-        throw new Error("Invalid username or password");
+        throw new Error("Invalid email or password");
       },
     }),
   ],
   callbacks: {
     async session({ session, token, user }) {
       // Customize session data if needed
+      session.user.id = token.id; // Ensure user.id is available in session
       return session;
     },
     async jwt({ token, user }) {
-      // Include user info in the JWT if available
+      // Include user info in the JWT token if available
       if (user) {
         token.id = user.id;
+        token.email = user.email; // Add email to JWT token for future use
       }
       return token;
     },
   },
   pages: {
     // Redirect paths for custom pages
-    signIn: "/auth/signin",
-    error: "/auth/error", // Error display
+    signIn: "/signin",
+    error: "/error", // Error display
   },
   session: {
     strategy: "jwt", // Use JSON Web Token strategy for session handling
