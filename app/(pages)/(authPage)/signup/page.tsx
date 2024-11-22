@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 const Signup = () => {
   const [otpSent, setOtpSent] = useState(false); // Tracks OTP step
@@ -17,13 +18,17 @@ const Signup = () => {
   ) => {
     if (!userName || !userEmail || !password) {
       alert("All fields are required.");
+
       return false;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!emailRegex.test(userEmail)) {
       alert("Please enter a valid email address.");
+
       return false;
     }
+
     return true;
   };
 
@@ -62,6 +67,7 @@ const Signup = () => {
   const verifyOtpHandler = () => {
     if (!userOtp.trim()) {
       alert("Please enter the OTP.");
+
       return;
     }
 
@@ -71,6 +77,7 @@ const Signup = () => {
       setGeneratedOtp(""); // Clear the generated OTP
       setOtpSent(false); // Reset the form for a new signup
       setEmail(""); // Clear email
+      window.location.href = "/";
     } else {
       alert("Invalid OTP. Please try again.");
     }
@@ -81,55 +88,59 @@ const Signup = () => {
       <section className="w-11/12 mx-auto max-w-sm">
         <h1 className="text-center font-bold text-3xl">Create an Account</h1>
         {!otpSent ? (
-          <form onSubmit={formSubmitHandler} className="mt-6 space-y-4">
+          <form className="mt-6 space-y-4" onSubmit={formSubmitHandler}>
             <div className="form-control">
-              <label htmlFor="userName" className="label">
+              <label className="label" htmlFor="userName">
                 <span className="label-text">User Name</span>
               </label>
               <input
+                required
+                className="input input-bordered"
                 id="userName"
                 name="userName"
-                type="text"
                 placeholder="User name"
-                className="input input-bordered"
-                required
+                type="text"
               />
             </div>
             <div className="form-control">
-              <label htmlFor="userEmail" className="label">
+              <label className="label" htmlFor="userEmail">
                 <span className="label-text">User Email</span>
               </label>
               <input
+                required
+                className="input input-bordered"
                 id="userEmail"
                 name="userEmail"
-                type="email"
                 placeholder="User email"
-                className="input input-bordered"
-                required
+                type="email"
               />
             </div>
             <div className="form-control">
-              <label htmlFor="password" className="label">
+              <label className="label" htmlFor="password">
                 <span className="label-text">Password</span>
               </label>
               <input
+                required
+                className="input input-bordered"
                 id="password"
                 name="password"
-                type="password"
                 placeholder="Password"
-                className="input input-bordered"
-                required
+                type="password"
               />
             </div>
             <div className="form-control mt-6">
               <button
-                type="submit"
                 className={`btn w-full ${loading ? "bg-gray-400" : "bg-purple-600"} text-white`}
                 disabled={loading}
+                type="submit"
               >
                 {loading ? "Sending OTP..." : "Sign Up"}
               </button>
             </div>
+            <h1 className="text-center text-sm font-semibold">
+              Already have an account?
+              <Link className="underline" href="/login"> Login</Link>
+            </h1>
           </form>
         ) : (
           <div className="mt-6">
@@ -137,24 +148,24 @@ const Signup = () => {
               Enter OTP
             </h2>
             <div className="form-control">
-              <label htmlFor="otp" className="label">
+              <label className="label" htmlFor="otp">
                 <span className="label-text">OTP</span>
               </label>
               <input
-                id="otp"
-                type="text"
-                placeholder="Enter OTP"
+                required
                 className="input input-bordered"
+                id="otp"
+                placeholder="Enter OTP"
+                type="text"
                 value={userOtp}
                 onChange={(e) => setUserOtp(e.target.value)}
-                required
               />
             </div>
             <div className="form-control mt-6">
               <button
-                onClick={verifyOtpHandler}
                 className={`btn w-full ${loading ? "bg-gray-400" : "bg-purple-600"} text-white`}
                 disabled={loading}
+                onClick={verifyOtpHandler}
               >
                 Verify OTP
               </button>

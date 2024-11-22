@@ -3534,17 +3534,22 @@ export const updateProducts = (category:string,subcategory:string,setProduct:any
     const subcategoryProducts = categoryProducts.filter(item=>{
         return item.subcategory === subcategory
     })
+
     return setProduct(subcategoryProducts)
 }
 
 export const getProduct = (product:string,setProduct:any)=>{
     const parsedProduct = product.replace('%25','%').replace('%2C',',').replace('%2F','/').replace('%2C',',')
+
     console.log(parsedProduct, 'okay')
     const productNew = products.filter(item=>{
         const newName = item?.name?.replace('%25','%').replace('%2F','/').replace('%2C',',').replace('%2C',',')
+
         return newName === parsedProduct
     })
     const productDetails = productNew[0]
+
     console.log(productDetails, 'okay')
+
     return setProduct(productDetails)
 }

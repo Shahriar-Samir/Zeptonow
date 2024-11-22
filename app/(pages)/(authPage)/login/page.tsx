@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { signIn } from "next-auth/react"; // Import signIn function
+import Link from "next/link";
 
 const Login = () => {
   const [loading, setLoading] = useState(false); // Track loading state
@@ -28,7 +29,7 @@ const Login = () => {
       setError("Invalid username or password");
     } else {
       // Redirect or handle successful login
-      window.location.href = "/dashboard"; // Redirect to dashboard or home page
+      window.location.href = "/"; // Redirect to dashboard or home page
     }
 
     setLoading(false); // Reset loading state
@@ -48,15 +49,16 @@ const Login = () => {
           onSubmit={formSubmitHandler}
         >
           <div className="form-control">
-            <label className="label">
+            <label className="label" htmlFor="email">
               <span className="label-text">Email</span>
             </label>
             <input
-              name="email"
-              type="email"
-              placeholder="email"
-              className="input input-bordered"
               required
+              className="input input-bordered"
+              id="email"
+              name="email"
+              placeholder="email"
+              type="email"
             />
           </div>
 
@@ -65,15 +67,15 @@ const Login = () => {
               <span className="label-text">Password</span>
             </label>
             <input
-              name="password"
-              id="password"
-              type="password"
-              placeholder="password"
-              className="input input-bordered"
               required
+              className="input input-bordered"
+              id="password"
+              name="password"
+              placeholder="password"
+              type="password"
             />
-            <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
+            <label className="label" htmlFor="fpass">
+              <a className="label-text-alt link link-hover" href="#any">
                 Forgot password?
               </a>
             </label>
@@ -81,13 +83,20 @@ const Login = () => {
 
           <div className="form-control mt-6">
             <button
-              type="submit"
               className={`btn bg-[#950EDB] text-white ${loading ? "loading" : ""}`}
               disabled={loading}
+              type="submit"
             >
               {loading ? "Logging in..." : "Login"}
             </button>
           </div>
+          <h1 className="text-center text-sm font-semibold mt-2 ">
+            Don&apos;t have an account?
+            <Link className="underline" href="/signup">
+              {" "}
+              Create an account
+            </Link>
+          </h1>
         </form>
       </section>
     </main>

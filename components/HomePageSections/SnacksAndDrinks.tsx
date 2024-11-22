@@ -1,7 +1,8 @@
-import { categoryType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
+import { categoryType } from "@/types";
 
 const SnacksAndDrinks = () => {
   const SnacksAndDrinksSubCategories: categoryType[] = [
@@ -44,30 +45,30 @@ const SnacksAndDrinks = () => {
             if (index === 0) {
               return (
                 <Link
-                  href={item.link}
                   key={index}
                   className="col-span-2 flex flex-col bg-white items-center gap-2 "
+                  href={item.link}
                 >
                   <Image
-                    width={300}
-                    height={300}
                     alt="example"
+                    height={300}
                     src={item.img ? item.img : ""}
+                    width={300}
                   />
                 </Link>
               );
             } else {
               return (
                 <Link
-                  href={item.link}
                   key={index}
                   className="flex flex-col items-center gap-2 "
+                  href={item.link}
                 >
                   <Image
-                    width={300}
-                    height={300}
                     alt="example"
+                    height={300}
                     src={item.img}
+                    width={300}
                   />
                 </Link>
               );

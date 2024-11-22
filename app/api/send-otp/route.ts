@@ -44,6 +44,7 @@ export async function POST(req: Request) {
     );
   } catch (error) {
     console.error("Error sending email:", error);
+
     return new Response(JSON.stringify({ error: "Failed to send OTP" }), {
       status: 500,
     });

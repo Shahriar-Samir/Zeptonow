@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { FaMicrophone } from "react-icons/fa";
 
@@ -66,23 +65,24 @@ const VoiceConverter = () => {
   return (
     <>
       <button
+        className="flex flex-col items-center"
         onClick={() => {
           const dialog = document.getElementById(
             "voiceRecorder"
           ) as HTMLDialogElement;
+
           dialog?.showModal();
         }}
-        className="flex flex-col items-center"
       >
         <FaMicrophone className="text-2xl" />
         <p className="text-xs">Voice</p>
       </button>
 
-      <dialog id="voiceRecorder" className="modal modal-middle">
+      <dialog className="modal modal-middle" id="voiceRecorder">
         <div className="modal-box !w-11/12 !max-w-[300px] flex justify-center items-center flex-col">
           <FaMicrophone
-            onClick={handleToggleRecording}
             className={`text-5xl cursor-pointer ${isRecording ? "text-red-600" : ""}`}
+            onClick={handleToggleRecording}
           />
           {isRecording ? (
             <div className="mt-2 flex gap-1">

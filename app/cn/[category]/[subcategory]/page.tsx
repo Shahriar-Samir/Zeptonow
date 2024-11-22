@@ -1,9 +1,5 @@
 "use client";
 
-import Sidebar from "@/components/sidebar";
-import { updateProducts } from "@/config/products";
-import { addToCart } from "@/lib/features/cart/cart";
-import { ProductsType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -11,7 +7,13 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { IoArrowBackSharp } from "react-icons/io5";
+
 import { ProductType } from "../../../../types";
+
+import { ProductsType } from "@/types";
+import { addToCart } from "@/lib/features/cart/cart";
+import { updateProducts } from "@/config/products";
+import Sidebar from "@/components/sidebar";
 
 
 const Subcategory = (props: { params: { subcategory: string; category: string } }) => {
@@ -45,8 +47,8 @@ const Subcategory = (props: { params: { subcategory: string; category: string } 
       <Sidebar category={category} />
       <section className="px-3 w-10/12">
         <button
-          onClick={goBack}
           className="mt-4 flex gap-2 items-center btn bg-[#f1e6ff] dark:hover:bg-[#f1e6ff] hover:bg-[#950EDB] dark:bg-[#950EDB] hover:text-white dark:hover:text-black dark:text-white"
+          onClick={goBack}
         >
           <IoArrowBackSharp /> Back
         </button>
@@ -111,6 +113,7 @@ const Subcategory = (props: { params: { subcategory: string; category: string } 
                         const dialog = document.getElementById(
                           "showUnits" + item.name
                         ) as HTMLDialogElement | null; // Type assertion
+
                         if (dialog) {
                           dialog.showModal();
                         } else {
@@ -121,8 +124,8 @@ const Subcategory = (props: { params: { subcategory: string; category: string } 
                       Options
                     </button>
                     <button
-                      onClick={() => addToCartHandler(item)}
                       className="w-1/2 text-[#EF4372] text-xs font-font4 border rounded border-[#EF4372] py-2"
+                      onClick={() => addToCartHandler(item)}
                     >
                       Add to Cart
                     </button>
@@ -171,7 +174,7 @@ const ShowUnitsModal = ({item}:any)=>{
  
  
   return (
-    <dialog id={'showUnits'+item.name} className="modal modal-middle sm:modal-middle">
+    <dialog className="modal modal-middle sm:modal-middle" id={'showUnits'+item.name}>
   <div className="modal-box w-full w-11/12 !max-w-[400px]">
   <form method="dialog">
       {/* if there is a button in form, it will close the modal */}
@@ -182,27 +185,26 @@ const ShowUnitsModal = ({item}:any)=>{
     <div className="flex gap-5 items-center w-full justify-center mt-4">
         <article className="w-5/12 flex flex-col justify-between h-full">
         <div className="w-full flex flex-col">
-        <Image src={newItem1.img1? newItem1.img1 : ''} width={400} className="w-full" height={400} alt={newItem1.name}/>
+        <Image alt={newItem1.name} className="w-full" height={400} src={newItem1.img1? newItem1.img1 : ''} width={400}/>
         <p className="font-font1 text-sm mt-2 dark:text-white"> 2 X {item.unit}</p>
         <p className="font-font2 text-sm mt-1 dark:text-white">₹{newItem1.discountedPrice}</p>
         </div>
-        <button onClick={()=> addToCartHandler(newItem1)} className="w-full text-[#EF4372] text-xs font-font4 border rounded border-[#EF4372] py-2 mt-3">
+        <button className="w-full text-[#EF4372] text-xs font-font4 border rounded border-[#EF4372] py-2 mt-3" onClick={()=> addToCartHandler(newItem1)}>
                   Add to Cart
         </button>
         </article>
         <article className="w-5/12 flex flex-col justify-between h-full">
         <div className="w-full flex flex-col">
-        <Image src={newItem2.img1? newItem2.img1 : ''} width={400} className="w-full" height={400} alt={newItem2.name}/>
+        <Image alt={newItem2.name} className="w-full" height={400} src={newItem2.img1? newItem2.img1 : ''} width={400}/>
         <p className="font-font1 text-sm mt-2 dark:text-white"> 4 X {item.unit}</p>
         <p className="font-font2 text-sm mt-1 dark:text-white">₹{newItem2.discountedPrice}</p>
         </div>
-        <button onClick={()=> addToCartHandler(newItem2)} className="w-full text-[#EF4372] text-xs font-font4 border rounded border-[#EF4372] py-2 mt-3">
+        <button className="w-full text-[#EF4372] text-xs font-font4 border rounded border-[#EF4372] py-2 mt-3" onClick={()=> addToCartHandler(newItem2)}>
                   Add to Cart
         </button>
         </article>
     </div>
-    <div className="modal-action">
-    </div>
+    <div className="modal-action" />
   </div>
 </dialog>
   )

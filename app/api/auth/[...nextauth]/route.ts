@@ -18,11 +18,11 @@ const handler = NextAuth({
 
         // Example: Validate user against your predefined users
         // Replace this with your custom logic (e.g., check against a database)
-        if (email === "shabusiness035@gmail.com" && password === "123") {
+        if (email === "example@gmail.com" && password === "123") {
           return {
             id: "1",
-            name: "Admin User",
-            email: "shabusiness035@gmail.com", // Use email here
+            name: "Example",
+            email: "example@gmail.com", // Use email here
           }; // Return user object with email
         }
 
@@ -32,16 +32,16 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async session({ session, token, user }) {
-      // Customize session data if needed
-      session.user.id = token.id; // Ensure user.id is available in session
+    async session({ session, token }) {
+      if (session?.user) {
+        session.user.id = token.id as string; // Add `id` to the session's user
+      }
       return session;
     },
     async jwt({ token, user }) {
-      // Include user info in the JWT token if available
       if (user) {
-        token.id = user.id;
-        token.email = user.email; // Add email to JWT token for future use
+        token.id = user.id; // Ensure `id` is added to the JWT token
+        token.email = user.email; // Ensure `email` is added to the JWT token
       }
       return token;
     },

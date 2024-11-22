@@ -11,142 +11,142 @@ const Footer = () => {
       <footer className="footer py-5 pb-10">
         <nav className="flex flex-col gap-4">
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Fruits & Vegetables
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Baby Food
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Breakfast & Sauces
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Cleaning Essentials
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Homegrown Brands
           </Link>
         </nav>
         <nav className="flex flex-col gap-4">
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Atta, Rice, Oil & Dals
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Dairy, Bread & Eggs
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Tea, Coffee & More
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Home Needs
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Paan Corner
           </Link>
         </nav>
         <nav className="flex flex-col gap-4">
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Masala & Dry Fruits
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Cold Drinks & Juices
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Biscuits
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Electricals & Accessories
           </Link>
         </nav>
         <nav className="flex flex-col gap-4">
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Sweet Cravings
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Munchies
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Makeup & Beauty
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Hygiene & Grooming
           </Link>
         </nav>
         <nav className="flex flex-col gap-4">
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Frozen Food & Ice Creams
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Meats, Fish & Eggs
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Bath & Body
           </Link>
           <Link
-            href="#"
             className="link link-hover text-black dark:text-white font-font2"
+            href="#"
           >
             Health & Baby Care
           </Link>
@@ -155,16 +155,16 @@ const Footer = () => {
       <footer className="footer grid-flow-row lg:grid-flow-col text-base-content border-t px-5 py-4 pb-28 gap-32">
         <section className="flex flex-col">
           <Image
-            height={100}
-            width={100}
             alt="logo2"
+            height={100}
             src="/primary-logo2.svg"
+            width={100}
           />
           <div className="flex gap-5 items-center">
-            <Image height={23} width={23} alt="" src="/icons/instagram.svg" />
-            <Image height={23} width={23} alt="" src="/icons/twitter.svg" />
-            <Image height={23} width={23} alt="" src="/icons/facebook.svg" />
-            <Image height={23} width={23} alt="" src="/icons/linkedin.svg" />
+            <Image alt="" height={23} src="/icons/instagram.svg" width={23} />
+            <Image alt="" height={23} src="/icons/twitter.svg" width={23} />
+            <Image alt="" height={23} src="/icons/facebook.svg" width={23} />
+            <Image alt="" height={23} src="/icons/linkedin.svg" width={23} />
           </div>
           <p className="w-max dark:text-white">
             © KiranaKart Technologies Private Limited
@@ -172,75 +172,75 @@ const Footer = () => {
         </section>
         <nav className="flex flex-col gap-4">
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Home
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Delivery Areas
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Careers
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Customer Support
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Press
           </Link>
         </nav>
         <nav className="flex flex-col gap-4">
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Privacy Policy
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Terms of Use
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Responsible Disclosure Policy
           </Link>
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Mojo - a Zepto Blog
           </Link>
         </nav>
         <nav className="flex flex-col gap-4">
           <Link
-            href="#"
             className="link link-hover font-font2 text-black dark:text-white"
+            href="#"
           >
             Download App
           </Link>
           <button className="text-black flex gap-2 border  border-[#D1D5DB] rounded-lg font-font2 py-4 px-5 xl:px-10 w-max dark:bg-white">
-            <Image height={15} width={15} alt="" src="/icons/play-store.svg" />{" "}
+            <Image alt="" height={15} src="/icons/play-store.svg" width={15} />{" "}
             Get it on play store
           </button>
           <button className="text-black flex gap-2 border  border-[#D1D5DB] rounded-lg font-font2 py-4  px-5 xl:px-10 w-max dark:bg-white">
-            <Image height={15} width={15} alt="" src="/icons/app-store.svg" />
+            <Image alt="" height={15} src="/icons/app-store.svg" width={15} />
             Get it on app store
           </button>
         </nav>

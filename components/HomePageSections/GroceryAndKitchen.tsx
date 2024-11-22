@@ -1,7 +1,8 @@
-import { categoryType } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
+import { categoryType } from "@/types";
 
 const GroceryAndKitchen = () => {
   const GroceryAndKitchenSubCategories: categoryType[] = [
@@ -32,15 +33,15 @@ const GroceryAndKitchen = () => {
         {GroceryAndKitchenSubCategories.map((item, index) => {
           return (
             <Link
-              href={item.link}
               key={index}
               className="flex flex-col items-center gap-2 bg-white"
+              href={item.link}
             >
               <Image
-                width={300}
-                height={300}
                 alt="example"
+                height={300}
                 src={item.img ? item.img : ""}
+                width={300}
               />
             </Link>
           );

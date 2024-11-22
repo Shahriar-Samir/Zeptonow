@@ -2,20 +2,21 @@
 
 
 import { getProduct } from '@/config/products';
-import { ProductType } from '@/types';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { IoArrowBackSharp } from "react-icons/io5";
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '@/lib/features/cart/cart';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
+
+import { addToCart } from '@/lib/features/cart/cart';
+import { ProductType } from '@/types';
 
 const Product = (props:{params:{productName:string}}) => {
     const {params:{productName}} = props
@@ -40,20 +41,20 @@ const Product = (props:{params:{productName:string}}) => {
 
     return (
         <main className='mt-5 '>
-                <button onClick={goBack} className='flex gap-2 items-center btn ms-5 bg-[#f1e6ff] dark:hover:bg-[#f1e6ff] hover:bg-[#950EDB] dark:bg-[#950EDB] hover:text-white dark:hover:text-black  dark:text-white'><IoArrowBackSharp /> Back</button>
+                <button className='flex gap-2 items-center btn ms-5 bg-[#f1e6ff] dark:hover:bg-[#f1e6ff] hover:bg-[#950EDB] dark:bg-[#950EDB] hover:text-white dark:hover:text-black  dark:text-white' onClick={goBack}><IoArrowBackSharp /> Back</button>
             <section className='flex flex-col md:flex-row gap-14  px-5 mt-10'>
                 <article className='w-full md:w-1/2 h-full'>
                 <figure className=' flex h-[80vh] justify-center items-center h-full border rounded-lg'>
           
-                <Swiper navigation={true} modules={[Navigation]} className="mySwiper w-3/4">
+                <Swiper className="mySwiper w-3/4" modules={[Navigation]} navigation={true}>
         <SwiperSlide>
-                  <Image width={1000} height={1000} alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-100' src={product?.img1? product?.img1:''}/>
+                  <Image alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-100' height={1000} src={product?.img1? product?.img1:''} width={1000}/>
         </SwiperSlide>
         <SwiperSlide>
-                  <Image width={1000} height={1000} alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-100' src={product?.img1? product?.img1:''}/>
+                  <Image alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-100' height={1000} src={product?.img1? product?.img1:''} width={1000}/>
         </SwiperSlide>
         <SwiperSlide>
-                  <Image width={1000} height={1000} alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-100' src={product?.img1? product?.img1:''}/>
+                  <Image alt={product.name?product?.name?.replace('%25','%').replace('%2F','/').replace('%7C','|').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',','): ''} className='w-100' height={1000} src={product?.img1? product?.img1:''} width={1000}/>
         </SwiperSlide>
 
       </Swiper>
@@ -74,9 +75,9 @@ const Product = (props:{params:{productName:string}}) => {
                 </article>
                 <article className='w-full md:w-1/2'>
                     <section className='pb-14 border-b-1'>
-                    <div className='flex gap-1 bg-[#F6F6F6] inline w-max p-1 rounded font-font3 text-sm'><Image height={15} width={15} alt='clock' src='/icons/clock-primary.svg'/> 9 Mins</div>
+                    <div className='flex gap-1 bg-[#F6F6F6] inline w-max p-1 rounded font-font3 text-sm'><Image alt='clock' height={15} src='/icons/clock-primary.svg' width={15}/> 9 Mins</div>
                     <h1 className='font-font4 text-xl mt-3 dark:text-white' >{product?.name?.replace('%25','%').replace('%2F','/').replace('%7C ','| ').replace('%7C ','| ').replace("%E2%80%99", "'").replace('%2C',',').replace('%2C',',')}</h1>
-                    <Link href='#' className='text-[#950EDB] font-font3 text-md'>See all {product?.model} products</Link>
+                    <Link className='text-[#950EDB] font-font3 text-md' href='#'>See all {product?.model} products</Link>
                     <div className='flex flex-col mt-5 gap-5'>
                     <h1 className='text-gray-600 dark:text-white'>{product?.unit}</h1>
                     <div className='flex gap-3 items-center'>
@@ -84,27 +85,27 @@ const Product = (props:{params:{productName:string}}) => {
                     {product?.discount? <h1 className='text-gray-600 line-through'>₹{product?.price}</h1> : ''}
                     {product?.discount? <div className='text-xs font-font4 text-white py-1 px-2 rounded-md bg-gradient-to-b from-[#7006A0] to-[#A201EC]'>{product?.discount}% Off</div> : ''}
                     </div>
-                    <button onClick={()=>addToCartHandler(product)} className='bg-[#ef4372] px-10 rounded-md py-3 font-font3 text-white border-none w-max mt-8'>Add</button>
+                    <button className='bg-[#ef4372] px-10 rounded-md py-3 font-font3 text-white border-none w-max mt-8' onClick={()=>addToCartHandler(product)}>Add</button>
                     </div>
                     </section>
                     <section className='mt-5 flex flex-col gap-5 dark:text-white'>
                         <h1 className='font-font4 text-lg mt-5'>How it Works</h1>
                         <div className='flex gap-4 items-center'>
-                            <Image width={80} height={80} alt='do-not-blink' className='border rounded-sm' src='/productDetails/place-order.svg'/>
+                            <Image alt='do-not-blink' className='border rounded-sm' height={80} src='/productDetails/place-order.svg' width={80}/>
                             <div className='gap-2'>
                                 <h1 className='font-font2 text-md'>Open the app</h1>
                                 <p className='font-font2 text-gray-400'>Choose from over 7000 products across groceries, fresh fruits & veggies, meat, pet care, beauty items & more</p>
                             </div>
                         </div>
                         <div className='flex gap-4 items-center'>
-                            <Image width={80} height={80} alt='do-not-blink' className='border rounded-sm' src='/productDetails/do-not-blink.svg'/>
+                            <Image alt='do-not-blink' className='border rounded-sm' height={80} src='/productDetails/do-not-blink.svg' width={80}/>
                             <div className='gap-2'>
                                 <h1 className='font-font2 text-md'>Place an order</h1>
                                 <p className='font-font2 text-gray-400'>Add your favourite items to the cart & avail the best offers</p>
                             </div>
                         </div>
                         <div className='flex gap-4 items-center'>
-                            <Image width={80} height={80} alt='do-not-blink' className='border rounded-sm' src='/productDetails/enjoy.svg'/>
+                            <Image alt='do-not-blink' className='border rounded-sm' height={80} src='/productDetails/enjoy.svg' width={80}/>
                             <div className='gap-2'>
                                 <h1 className='font-font2 text-md'>Get free delivery</h1>
                                 <p className='font-font2 text-gray-400'>Experience lighting-fast speed & get all your items delivered in 10 minutes</p>

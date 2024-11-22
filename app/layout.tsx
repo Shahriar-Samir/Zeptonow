@@ -1,12 +1,15 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
+import clsx from "clsx";
+
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
-import clsx from "clsx";
 import ReduxProvider from "@/lib/Provider";
+
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+
 import Session from "@/providers/Session";
 
 export const metadata: Metadata = {
@@ -26,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <Session>
-      <html suppressHydrationWarning lang="en" data-theme="light">
+      <html suppressHydrationWarning data-theme="light" lang="en">
         <head>
           <style>{`
           html{

@@ -1,10 +1,12 @@
-import { SuggestionsType } from "@/types";
 import axios from "axios";
 import { NextResponse } from "next/server";
+
+import { SuggestionsType } from "@/types";
 
 export const GET = async (req:Request, { params }:{params:{location:string}}) => {
    const { location } = params;
    const apiKey = process.env.API_KEY;
+
    console.log(location)
 
   if(location.length<3 || location === '0'){
@@ -28,6 +30,7 @@ export const GET = async (req:Request, { params }:{params:{location:string}}) =>
       return NextResponse.json({ suggestions });
    } catch (err) {
       console.error("Error fetching location suggestions:", err);
+
       return NextResponse.json({ error: "Failed to fetch location suggestions" }, { status: 500 });
    }
   

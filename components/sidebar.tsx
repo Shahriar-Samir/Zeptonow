@@ -1,5 +1,13 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
+
+import { breakfast } from "../config/site";
+
+import { subCategoryType } from "@/types";
 import {
   atta,
   biscuits,
@@ -12,12 +20,6 @@ import {
   sweetCravings,
   teaCoffeeMore,
 } from "@/config/site";
-import { subCategoryType } from "@/types";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import { breakfast } from "../config/site";
 
 const Sidebar = (props: { category: string }) => {
   const { category } = props;
@@ -72,19 +74,19 @@ const Sidebar = (props: { category: string }) => {
             return (
               <li key={item.title}>
                 <Link
-                  href={item.path}
                   className={
                     path === item.path
                       ? "border-s-5 border-[#950EDB] w-full py-3 flex gap-2 items-center  bg-[#F7E4FF] font-font4 text-[#7C0AB1] text-sm px-4 "
                       : "ps-4 w-full py-3 flex gap-2 items-center font-font1 text-sm"
                   }
+                  href={item.path}
                 >
                   <Image
-                    width={45}
-                    height={45}
                     alt={item.title}
                     className="rounded-full bg-[#F7F0FA]"
+                    height={45}
                     src={item.img}
+                    width={45}
                   />
                   <p className="">{item.title}</p>
                 </Link>
