@@ -89,3 +89,9 @@ export interface CartState {
   list: CartItem[];
   total: number;
 }
+
+export interface IUser {
+  name: string;
+  email: string;
+  password: string;
+}

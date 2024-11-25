@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 import Session from "@/providers/Session";
+import connectDB from "@/lib/connectDB";
 
 export const metadata: Metadata = {
   title: "Welcome to Zepto",
@@ -22,11 +23,12 @@ export const viewport: Viewport = {
   themeColor: [{ media: "(prefers-color-scheme: light)", color: "white" }],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  await connectDB();
   return (
     <Session>
       <html suppressHydrationWarning data-theme="light" lang="en">

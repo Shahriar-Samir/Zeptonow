@@ -3,12 +3,15 @@
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [otpSent, setOtpSent] = useState(false); // Tracks OTP step
   const [generatedOtp, setGeneratedOtp] = useState(""); // Stores the OTP sent from server
   const [userOtp, setUserOtp] = useState(""); // Stores OTP input by the user
+  const [name, setName] = useState(""); // Stores user's email
   const [email, setEmail] = useState(""); // Stores user's email
+  const [password, setPassword] = useState(""); // Stores user's email
   const [loading, setLoading] = useState(false); // Tracks loading state
 
   const validateInputs = (
@@ -41,7 +44,9 @@ const Signup = () => {
 
     if (!validateInputs(userName, userEmail, password)) return;
 
+    setName(userName);
     setEmail(userEmail);
+    setPassword(password);
 
     try {
       setLoading(true);
@@ -64,7 +69,7 @@ const Signup = () => {
     }
   };
 
-  const verifyOtpHandler = () => {
+  const verifyOtpHandler = async () => {
     if (!userOtp.trim()) {
       alert("Please enter the OTP.");
 
@@ -73,11 +78,22 @@ const Signup = () => {
 
     if (userOtp === generatedOtp) {
       alert("OTP verified! Signup successful.");
-      setUserOtp(""); // Clear user input OTP
-      setGeneratedOtp(""); // Clear the generated OTP
+      setUserOtp("");
+      setGeneratedOtp("");
+      try {
+        const res = await axios.post("http://localhost:3000/api/signup", {
+          name,
+          email,
+          password,
+        });
+        if (res.data.success) {
+          setEmail(""); // Clear email
+          window.location.href = "/login";
+        }
+      } catch (err) {
+        toast.error("Something went wrong");
+      }
       setOtpSent(false); // Reset the form for a new signup
-      setEmail(""); // Clear email
-      window.location.href = "/";
     } else {
       alert("Invalid OTP. Please try again.");
     }
@@ -139,7 +155,10 @@ const Signup = () => {
             </div>
             <h1 className="text-center text-sm font-semibold">
               Already have an account?
-              <Link className="underline" href="/login"> Login</Link>
+              <Link className="underline" href="/login">
+                {" "}
+                Login
+              </Link>
             </h1>
           </form>
         ) : (

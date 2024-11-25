@@ -1,5 +1,7 @@
+import { UserModel } from "@/models/user.model";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcrypt";
 
 const handler = NextAuth({
   providers: [
@@ -16,13 +18,21 @@ const handler = NextAuth({
       async authorize(credentials) {
         const { email, password } = credentials || {};
 
-        // Example: Validate user against your predefined users
-        // Replace this with your custom logic (e.g., check against a database)
-        if (email === "example@gmail.com" && password === "123") {
+        const result = await UserModel.findOne({ email }).select({
+          email: 1,
+          password: 1,
+        });
+        const isPasswordCorrect = await bcrypt.compare(
+          password,
+          result.password
+        );
+        console.log(isPasswordCorrect);
+
+        if (email === result.email && isPasswordCorrect) {
           return {
             id: "1",
-            name: "Example",
-            email: "example@gmail.com", // Use email here
+            name: result.name,
+            email: result.email, // Use email here
           }; // Return user object with email
         }
 
