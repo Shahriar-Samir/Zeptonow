@@ -47,6 +47,7 @@ const Signup = () => {
       const res = await axios.post("http://localhost:3000/api/emailExist", {
         email: userEmail,
       });
+
       if (res.data.isExist) {
         return toast.error("Email already exist");
       }
@@ -93,12 +94,14 @@ const Signup = () => {
           email,
           password,
         });
+
         if (res.data.success) {
           const isSignedIn = await signIn("credentials", {
             redirect: false,
             email,
             password,
           });
+
           if (isSignedIn) {
             setEmail(""); // Clear email
             window.location.href = "/";

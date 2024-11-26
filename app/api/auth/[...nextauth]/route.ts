@@ -1,7 +1,8 @@
-import { UserModel } from "@/models/user.model";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
+
+import { UserModel } from "@/models/user.model";
 
 const handler = NextAuth({
   providers: [
@@ -23,9 +24,10 @@ const handler = NextAuth({
           password: 1,
         });
         const isPasswordCorrect = await bcrypt.compare(
-          password,
+          password as string,
           result.password
         );
+
         console.log(isPasswordCorrect);
 
         if (email === result.email && isPasswordCorrect) {
@@ -46,6 +48,7 @@ const handler = NextAuth({
       if (session?.user) {
         session.user.id = token.id as string; // Add `id` to the session's user
       }
+
       return session;
     },
     async jwt({ token, user }) {
@@ -53,6 +56,7 @@ const handler = NextAuth({
         token.id = user.id; // Ensure `id` is added to the JWT token
         token.email = user.email; // Ensure `email` is added to the JWT token
       }
+
       return token;
     },
   },

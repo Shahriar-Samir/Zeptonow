@@ -1,6 +1,7 @@
-import { UserModel } from "@/models/user.model";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
+
+import { UserModel } from "@/models/user.model";
 
 export const POST = async (req: Request) => {
   try {
@@ -10,6 +11,7 @@ export const POST = async (req: Request) => {
       ...userData,
       password: hashedPass,
     });
+
     return NextResponse.json({
       success: true,
       message: "User created successfully",

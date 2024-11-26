@@ -1,10 +1,12 @@
-import { UserModel } from "@/models/user.model";
 import { NextResponse } from "next/server";
+
+import { UserModel } from "@/models/user.model";
 
 export const POST = async (req: Request) => {
   try {
     const userData = await req.json();
     const isExist = await UserModel.findOne({ email: userData.email });
+
     if (!isExist) {
       return NextResponse.json({
         success: true,
@@ -12,6 +14,7 @@ export const POST = async (req: Request) => {
         isExist: false,
       });
     }
+
     return NextResponse.json({
       success: false,
       message: "User email already exist",

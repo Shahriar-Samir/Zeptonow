@@ -29,6 +29,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   await connectDB();
+
   return (
     <Session>
       <html suppressHydrationWarning data-theme="light" lang="en">

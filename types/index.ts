@@ -1,5 +1,4 @@
 import { SVGProps } from "react";
-import NextAuth from "next-auth";
 
 declare module "next-auth" {
   interface Session {
