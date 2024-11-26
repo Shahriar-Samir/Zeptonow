@@ -7,10 +7,10 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { IoCartOutline } from "react-icons/io5";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import Link from "next/link";
-
+import { MdOutlineLogout } from "react-icons/md";
 import VoiceRecorder from "./VoiceCoverter";
 
 import { setToCart } from "@/lib/features/cart/cart";
@@ -256,7 +256,16 @@ export const Navbar = () => {
         <div className="flex justify-center gap-5">
           <VoiceRecorder />
           {session?.data ? (
-            ""
+            <button
+              className="flex flex-col items-center relative text-xs"
+              onClick={async () => {
+                await signOut();
+                toast.success("Signed out successfully");
+              }}
+            >
+              <MdOutlineLogout className="text-2xl" />
+              Logout
+            </button>
           ) : (
             <button>
               <Link

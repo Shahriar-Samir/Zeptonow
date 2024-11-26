@@ -3,10 +3,10 @@
 import React, { useState } from "react";
 import { signIn } from "next-auth/react"; // Import signIn function
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const [loading, setLoading] = useState(false); // Track loading state
-  const [error, setError] = useState(""); // To capture login errors
+  const [loading, setLoading] = useState(false); // Track loading state/ To capture login errors
 
   // Handle form submission to trigger signIn
   const formSubmitHandler = async (e: React.FormEvent) => {
@@ -26,7 +26,7 @@ const Login = () => {
 
     if (result?.error) {
       // Handle error during login
-      setError("Invalid username or password");
+      toast.error("Invalid username or password");
     } else {
       // Redirect or handle successful login
       window.location.href = "/"; // Redirect to dashboard or home page
@@ -39,10 +39,6 @@ const Login = () => {
     <main className="flex justify-center items-center h-[100vh]">
       <section className="w-11/12 mx-auto max-w-[300px]">
         <h1 className="text-center font-font4 text-3xl">Login</h1>
-
-        {error && (
-          <div className="text-red-500 text-center mb-4">{error}</div> // Display error if login fails
-        )}
 
         <form
           className="card-body w-full p-0 mt-5"

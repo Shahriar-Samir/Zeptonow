@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import { signIn } from "next-auth/react";
 
 const Signup = () => {
   const [otpSent, setOtpSent] = useState(false); // Tracks OTP step
@@ -20,14 +21,14 @@ const Signup = () => {
     password: string
   ) => {
     if (!userName || !userEmail || !password) {
-      alert("All fields are required.");
+      toast.error("All fields are required.");
 
       return false;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(userEmail)) {
-      alert("Please enter a valid email address.");
+      toast.error("Please enter a valid email address.");
 
       return false;
     }
@@ -42,26 +43,32 @@ const Signup = () => {
     const userEmail = form.userEmail.value.trim();
     const password = form.password.value.trim();
 
-    if (!validateInputs(userName, userEmail, password)) return;
-
-    setName(userName);
-    setEmail(userEmail);
-    setPassword(password);
-
     try {
+      const res = await axios.post("http://localhost:3000/api/emailExist", {
+        email: userEmail,
+      });
+      if (res.data.isExist) {
+        return toast.error("Email already exist");
+      }
+
+      if (!validateInputs(userName, userEmail, password)) return;
+
+      setName(userName);
+      setEmail(userEmail);
+      setPassword(password);
       setLoading(true);
       const response = await axios.post("/api/send-otp", { email: userEmail });
 
       if (response.status === 200) {
         setOtpSent(true);
         setGeneratedOtp(response.data.otp); // Save generated OTP in state
-        alert("OTP sent to your email!");
+        toast.success("OTP sent to your email!");
       } else {
         alert(response.data?.error || "Failed to send OTP.");
       }
     } catch (error: any) {
       console.error("Error sending OTP:", error);
-      alert(
+      toast.error(
         error.response?.data?.error || "Error sending OTP. Please try again."
       );
     } finally {
@@ -71,7 +78,7 @@ const Signup = () => {
 
   const verifyOtpHandler = async () => {
     if (!userOtp.trim()) {
-      alert("Please enter the OTP.");
+      toast.success("Please enter the OTP.");
 
       return;
     }
@@ -87,15 +94,25 @@ const Signup = () => {
           password,
         });
         if (res.data.success) {
-          setEmail(""); // Clear email
-          window.location.href = "/login";
+          const isSignedIn = await signIn("credentials", {
+            redirect: false,
+            email,
+            password,
+          });
+          if (isSignedIn) {
+            setEmail(""); // Clear email
+            window.location.href = "/";
+          }
+        } else {
+          toast.error(res.data.message);
         }
       } catch (err) {
         toast.error("Something went wrong");
+        console.log(err);
       }
       setOtpSent(false); // Reset the form for a new signup
     } else {
-      alert("Invalid OTP. Please try again.");
+      toast.error("Invalid OTP. Please try again.");
     }
   };
 
